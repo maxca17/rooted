@@ -41,11 +41,11 @@ export function EventContent() {
     <section className="py-8 px-8 lg:py-20">
       <Tabs value="Day1" className="mb-8">
         <div className="w-full flex mb-8 flex-col items-center">
-          <TabsHeader className="h-12 w-72 md:w-96">
-            <Tab value="Day1" className="font-medium">
+          <TabsHeader className="h-12 w-72 md:w-96" placeholder="Tabs Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
+            <Tab value="Day1" className="font-medium" placeholder="Tab Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
               Day 1
             </Tab>
-            <Tab value="Day2" className="font-medium">
+            <Tab value="Day2" className="font-medium" placeholder="Tab Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
               Day 2
             </Tab>
           </TabsHeader>
