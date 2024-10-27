@@ -13,29 +13,52 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import EventContentCard from "@/components/event-content-card";
 import Image from "next/image"; // Importing Image from next/image
 
+// Data for EventContentCard components
 const EVENT_CONTENT = [
   {
     title: "AI's Role in Shaping the Future",
-    des: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    name: "Miranda Smith",
+    des: "Agenda To Be Updated Soon!",
+    name: "Marcell Glock",
     position: "Chief Executive, Spotify",
     panel: "Panel Discussion",
-    img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp",
+    img: "/image/avatar1.jpg",
   },
   {
     title: "Introduction to Machine Learning",
-    des: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
-    name: "Annie Hall",
+    des: "Agenda To Be Updated Soon!",
+    name: "Marcell Glock",
     position: "Chief Executive, Spotify",
     panel: "Workshop",
-    img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp",
+    img: "/image/avatar2.jpg",
   },
   {
     title: "AI in Healthcare: Revolutionizing Patient Care",
-    des: "At vero eos et accusamus et iusto odio dignissimos qui.",
-    name: "Jason More",
+    des: "Agenda To Be Updated Soon!",
+    name: "Marcell Glock",
     position: "Chief Executive, Spotify",
     panel: "Workshop",
+    img: "/image/avatar3.jpg",
+  },
+];
+
+// Data for the Carousel
+const CAROUSEL_CONTENT = [
+  {
+    des: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    name: "Miranda Smith",
+    position: "The Guardian",
+    img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp",
+  },
+  {
+    des: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
+    name: "Annie Hall",
+    position: "New York Times",
+    img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp",
+  },
+  {
+    des: "At vero eos et accusamus et iusto odio dignissimos qui.",
+    name: "Jason More",
+    position: "Smash Magazine",
     img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp",
   },
 ];
@@ -46,11 +69,28 @@ export default function EventContent() {
       {/* Tabs */}
       <Tabs value="Day1" className="mb-8">
         <div className="w-full flex mb-8 flex-col items-center">
-          <TabsHeader className="h-12 w-72 md:w-96" placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
-            <Tab value="Day1" className="font-medium" placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
+          <TabsHeader 
+            className="h-12 w-72 md:w-96" 
+            placeholder="" 
+            onPointerEnterCapture={() => {}} 
+            onPointerLeaveCapture={() => {}}
+          >
+            <Tab 
+              value="Day1" 
+              className="font-medium" 
+              placeholder="" 
+              onPointerEnterCapture={() => {}} 
+              onPointerLeaveCapture={() => {}}
+            >
               Day 1
             </Tab>
-            <Tab value="Day2" className="font-medium" placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
+            <Tab 
+              value="Day2" 
+              className="font-medium" 
+              placeholder="" 
+              onPointerEnterCapture={() => {}} 
+              onPointerLeaveCapture={() => {}}
+            >
               Day 2
             </Tab>
           </TabsHeader>
@@ -70,6 +110,9 @@ export default function EventContent() {
             loop
             className="rounded-xl h-96"
             transition={{ duration: 1 }}
+            placeholder=""
+            onPointerEnterCapture={() => {}}
+            onPointerLeaveCapture={() => {}}
             prevArrow={({ handlePrev }) => (
               <button
                 onClick={handlePrev}
@@ -86,11 +129,8 @@ export default function EventContent() {
                 <i className="fas fa-chevron-right fa-lg text-gray-700"></i>
               </button>
             )}
-            placeholder=""
-            onPointerEnterCapture={() => {}}
-            onPointerLeaveCapture={() => {}}
           >
-            {EVENT_CONTENT.map((item, idx) => (
+            {CAROUSEL_CONTENT.map((item, idx) => (
               <div
                 key={idx}
                 className="flex flex-col items-center justify-center h-full text-center"
@@ -108,7 +148,7 @@ export default function EventContent() {
                 </p>
                 <h5 className="mt-4 text-xl font-semibold">{item.name}</h5>
                 <p className="text-gray-500">{item.position}</p>
-              </div>
+              </div> // Closing div for the carousel item
             ))}
           </Carousel>
         </div>
