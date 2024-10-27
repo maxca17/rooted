@@ -14,7 +14,7 @@ import {
   XMarkIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
-import { useRouter } from 'next/navigation'; // Import useRouter
+import { useRouter } from 'next/navigation'; 
 
 interface NavItemProps {
   children: React.ReactNode;
@@ -123,9 +123,9 @@ export function Navbar() {
           ))}
         </ul>
         <div className="hidden items-center gap-4 lg:flex">
-          <Button color={isScrolling ? "gray" : "white"} variant="text" placeholder="Log in Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
+          {/* <Button color={isScrolling ? "gray" : "white"} variant="text" placeholder="Log in Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
             Log in
-          </Button>
+          </Button> */}
           <a href="/sponsor" target="_self">
             <Button color={isScrolling ? "gray" : "white"} placeholder="Become a Sponsor Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>Become a Sponsor</Button>
           </a>
