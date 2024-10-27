@@ -8,6 +8,8 @@ import AboutEvent from "./about-event";
 import OurStats from "./our-stats";
 import EventContent from "./event-content";
 import Faq from "./faq";
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export default function Portfolio() {
   return (

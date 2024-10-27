@@ -31,6 +31,7 @@ export function AboutCard({ title, description, subTitle }: AboutCardProp) {
           view details
         </Button>
       </CardBody>
+      
     </Card>
   );
 }

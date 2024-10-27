@@ -43,7 +43,8 @@ function Hero() {
           <Button 
             variant="gradient" 
             color="white" 
-            placeholder="Join Waitlist" 
+            placeholder="Join Waitlist"
+            onClick={() => window.location.href = '/waitlist'}
             onPointerEnterCapture={() => {}} 
             onPointerLeaveCapture={() => {}}
           >

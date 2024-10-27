@@ -14,6 +14,7 @@ import {
   XMarkIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
+import { useRouter } from 'next/navigation'; // Import useRouter
 
 interface NavItemProps {
   children: React.ReactNode;
@@ -58,8 +59,13 @@ const NAV_MENU = [
 export function Navbar() {
   const [open, setOpen] = React.useState(false);
   const [isScrolling, setIsScrolling] = React.useState(false);
+  const router = useRouter(); // Initialize useRouter
 
   const handleOpen = () => setOpen((cur) => !cur);
+
+  const handleLogoClick = () => {
+    router.push('/'); // Navigate to the main page
+  };
 
   React.useEffect(() => {
     window.addEventListener(
@@ -96,10 +102,11 @@ export function Navbar() {
       <div className="container mx-auto flex items-center justify-between">
         <Typography
           color={isScrolling ? "blue-gray" : "white"}
-          className="text-lg font-bold"
+          className="text-lg font-bold cursor-pointer" // Add cursor pointer
           placeholder="Rooted Expo Placeholder"
           onPointerEnterCapture={() => {}}
           onPointerLeaveCapture={() => {}}
+          onClick={handleLogoClick} // Add click handler
         >
           Rooted Expo
         </Typography>
@@ -119,7 +126,7 @@ export function Navbar() {
           <Button color={isScrolling ? "gray" : "white"} variant="text" placeholder="Log in Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
             Log in
           </Button>
-          <a href="https://www.material-tailwind.com/blocks" target="_blank">
+          <a href="/sponsor" target="_self">
             <Button color={isScrolling ? "gray" : "white"} placeholder="Become a Sponsor Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>Become a Sponsor</Button>
           </a>
         </div>
