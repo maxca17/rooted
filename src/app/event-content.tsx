@@ -10,8 +10,8 @@ import {
   Carousel,
 } from "@material-tailwind/react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import Image from "next/image"; // Uncommented Image import
 // import EventContentCard from "@/components/event-content-card";
-// import Image from "next/image"; // Importing Image from next/image
 
 // Data for EventContentCard components
 // const EVENT_CONTENT = [
@@ -47,31 +47,31 @@ const CAROUSEL_CONTENT = [
     des: "While technology has made the world smaller, there is no substitute for sharing a real, physical experience together. Rooted Expo brings the diverse flavors and styles crafted in every corner of Texas into one convenient setting where we can celebrate the excellence of our far-reaching CPG community.",
     name: "Jeff Richards",
     position: "CEO | Founder of Mooala",
-    img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp",
+    img: "/image/jeffr.png",
   },
   {
     des: "Texas is filled with some of the proudest people in the world, so having a show to celebrate local Texas CPG brands is long overdue! As a brand owner, we are so excited to gather at a convenient location with fellow Texans from all over! ",
     name: "Austin Patry",
     position: "Founder of Realsy",
-    img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp",
+    img: "/image/austin.png",
   },
   {
-    des: "Finally, a time and place for Texas CPG brands to display their wares in Texas.  In line with Texas’ entrepreneurial spirit, it is a trade show for the people and by the people and not at the undue expense of the people.  The show will serve everyone interested in and passionate about CPG.  Come one, come all!",
+    des: "Finally, a time and place for Texas CPG brands to display their wares in Texas.  In line with Texas' entrepreneurial spirit, it is a trade show for the people and by the people and not at the undue expense of the people.  The show will serve everyone interested in and passionate about CPG.  Come one, come all!",
     name: "Richard G. Riccardi",
     position: "Co-Founder of DFW CPG | Blogger",
-    img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp",
+    img: "/image/richard.png",
   },
   {
     des: "Texas stands out with its bold entrepreneurial spirit, and Rooted Expo will bring innovators and industry leaders together to foster growth, partnerships, and lasting impact—all in a way that is uniquely Texan.",
     name: "Rick Jordan",
     position: "Co-Founder of DFW CPG | Shareholder at Polsinelli",
-    img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp",
+    img: "/image/rickjordan.png",
   },
   {
     des: "This is a fantastic chance to showcase Texas brands - a symbol of the state's entrepreneurial spirit. I can't wait!",
     name: "Michelle Breyer",
     position: "Chief Marketing Officer at SKU",
-    img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp",
+    img: "/image/michelle.png",
   },
 ];
 
@@ -147,13 +147,13 @@ export default function EventContent() {
                 key={idx}
                 className="flex flex-col items-center justify-center h-full text-center"
               >
-                {/* <Image
+                <Image
                   src={item.img}
                   className="rounded-full mb-4 shadow-lg"
-                  alt="avatar"
+                  alt={`${item.name} avatar`}
                   width={90}
                   height={90}
-                /> */}
+                />
                 <p className="italic text-lg text-gray-700 max-w-2xl mx-auto px-4">
                   <i className="fas fa-quote-left fa-lg text-yellow-500 mr-2"></i>
                   {item.des}

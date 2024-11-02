@@ -28,7 +28,7 @@ export function AboutCard({ title, description, subTitle }: AboutCardProp) {
           {description}
         </Typography>
         <Button color="white" size="sm" placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
-          view details
+          Details Soon
         </Button>
       </CardBody>
       

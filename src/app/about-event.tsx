@@ -7,13 +7,13 @@ const EVENT_INFO = [
   {
     title: "Big Ideas, Bold Pitches!",
     description:
-      "Watch emerging brands showcase their groundbreaking innovations in front of industry leaders. Discover the next wave of CPG success stories live on stage! (View Details - can lead to a page coming soon or TBA!)",
+      "Watch emerging brands showcase their groundbreaking innovations in front of industry leaders. Discover the next wave of CPG success stories live on stage!",
     subTitle: "Pitch Slam",
   },
   {
     title: "Hands-On Strategies!",
     description:
-      "Join interactive sessions tailored for CPG professionals and gain actionable insights you can implement right away to drive your brand forward. (View Details - can lead to a page coming soon or TBA!)",
+      "Join interactive sessions tailored for CPG professionals and gain actionable insights you can implement right away to drive your brand forward.",
     subTitle: "Workshops",
   },
 ];
@@ -39,7 +39,7 @@ export function AboutEvent() {
           <AboutCard
             title="Connect & Grow!"
             subTitle="Community"
-            description="Network with CPG founders, industry leaders, and key decision-makers. Build lasting relationships within the community that will help elevate your brand and business! (View Details - can lead to a page coming soon or TBA!)"
+            description="Network with CPG founders, industry leaders, and key decision-makers. Build lasting relationships within the community that will help elevate your brand and business!"
           />
         </div>
       </div>
