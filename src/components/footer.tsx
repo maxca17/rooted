@@ -67,46 +67,58 @@ export function Footer() {
             ))}
           </ul>
           <div className="flex w-fit justify-center gap-2">
-            <IconButton
-              size="sm"
-              color="gray"
-              variant="text"
-              placeholder=""
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
-            >
-              <i className="fa-brands fa-twitter text-lg" />
-            </IconButton>
-            <IconButton
-              size="sm"
-              color="gray"
-              variant="text"
-              placeholder=""
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
-            >
-              <i className="fa-brands fa-youtube text-lg" />
-            </IconButton>
-            <IconButton
-              size="sm"
-              color="gray"
-              variant="text"
-              placeholder=""
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
-            >
-              <i className="fa-brands fa-instagram text-lg" />
-            </IconButton>
-            <IconButton
-              size="sm"
-              color="gray"
-              variant="text"
-              placeholder=""
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
-            >
-              <i className="fa-brands fa-linkedin text-lg" />
-            </IconButton>
+            <a href="https://x.com/rootedexpo" target="_blank" rel="noopener noreferrer">
+              <IconButton
+                size="sm"
+                color="gray"
+                variant="text"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                {/* Twitter Icon */}
+                <i className="fa-brands fa-twitter text-lg" />
+              </IconButton>
+            </a>
+            <a href="https://www.youtube.com/@RootedExpo" target="_blank" rel="noopener noreferrer">
+              <IconButton
+                size="sm"
+                color="gray"
+                variant="text"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                {/* YouTube Icon */}
+                <i className="fa-brands fa-youtube text-lg" />
+              </IconButton>
+            </a>
+            <a href="https://www.instagram.com/rootedexpo/" target="_blank" rel="noopener noreferrer">
+              <IconButton
+                size="sm"
+                color="gray"
+                variant="text"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                {/* Instagram Icon */}
+                <i className="fa-brands fa-instagram text-lg" />
+              </IconButton>
+            </a>
+            <a href="https://www.linkedin.com/company/rootedexpo" target="_blank" rel="noopener noreferrer">
+              <IconButton
+                size="sm"
+                color="gray"
+                variant="text"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                {/* LinkedIn Icon */}
+                <i className="fa-brands fa-linkedin text-lg" />
+              </IconButton>
+            </a>
           </div>
         </div>
         <Typography

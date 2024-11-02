@@ -19,7 +19,7 @@ export default function Portfolio() {
       <SponsoredBy />
       <AboutEvent />
       <OurStats />
-      <EventContent />
+      <EventContent /> 
       <Faq />
       <Footer />
     </>
