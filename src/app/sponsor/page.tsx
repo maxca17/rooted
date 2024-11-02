@@ -44,14 +44,12 @@ export default function Sponsor() {
 
   const [showPopup, setShowPopup] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
-    const checked = (e.target as HTMLInputElement).checked; // Type assertion for checked property
+    const checked = (e.target as HTMLInputElement).checked;
     if (type === 'checkbox') {
       setFormData((prevData) => {
-        const currentValues = prevData[name as keyof FormData] as string[]; // Type assertion
+        const currentValues = prevData[name as keyof FormData] as string[];
         return {
           ...prevData,
           [name]: checked
@@ -92,9 +90,7 @@ export default function Sponsor() {
       if (error) {
         console.error('Error inserting data:', error);
       } else {
-        console.log('Data inserted successfully:', data);
         setShowPopup(true);
-
         setTimeout(() => {
           router.push('/');
         }, 5000);
@@ -105,254 +101,113 @@ export default function Sponsor() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <Navbar />
-      <div className="flex-grow py-8 px-8 lg:py-20">
-        <div className="flex flex-col md:flex-row items-start justify-center">
-          <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
-            <Image
-              src="/images/joinrooted.png"
-              alt="City skyline"
-              width={400}
-              height={400}
-              className="w-full h-auto"
-            />
-          </div>
+      <div className="flex-grow flex flex-col lg:flex-row items-stretch py-10 lg:py-20 px-6 lg:px-20">
+        
+        {/* Left Image Section */}
+        <div className="lg:w-1/2 h-[500px] lg:h-auto relative">
+          <Image
+            src="/image/side.png"
+            alt="Architectural Dome"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="rounded-lg object-cover shadow-lg"
+          />
+        </div>
+        
+        {/* Form Section */}
+        <form
+          className="lg:w-1/2 bg-white p-8 rounded-lg shadow-lg space-y-6"
+          onSubmit={handleSubmit}
+        >
+          <h2 className="text-3xl font-bold text-gray-700 mb-4">Company Information</h2>
 
-          <form
-            className="md:w-1/2 flex flex-col space-y-4"
-            onSubmit={handleSubmit}
-          >
-            <h2 className="text-2xl font-bold mb-4">COMPANY INFORMATION</h2>
-            <div className="grid grid-cols-1 gap-4">
-              <div className="flex flex-col">
-                <label htmlFor="companyName" className="font-semibold">
-                  Company Name:
-                </label>
+          <div className="grid grid-cols-1 gap-4">
+            {[
+              { label: 'Company Name', id: 'companyName', type: 'text' },
+              { label: 'Primary Contact Name', id: 'primaryContact', type: 'text' },
+              { label: 'Email Address', id: 'email', type: 'email' },
+              { label: 'Phone Number', id: 'phone', type: 'tel' },
+              { label: 'Company Website', id: 'website', type: 'text' },
+              { label: 'Company Address', id: 'address', type: 'text' },
+            ].map(({ label, id, type }) => (
+              <div key={id} className="flex flex-col">
+                <label htmlFor={id} className="font-semibold text-gray-600">{label}:</label>
                 <input
-                  type="text"
-                  id="companyName"
-                  name="companyName"
-                  value={formData.companyName}
+                  type={type}
+                  id={id}
+                  name={id}
+                  value={formData[id as keyof FormData] as string}
                   onChange={handleChange}
-                  className="border p-2 rounded"
+                  className="border border-gray-300 p-2 rounded-md focus:outline-none focus:border-blue-400"
                 />
               </div>
-              <div className="flex flex-col">
-                <label htmlFor="primaryContact" className="font-semibold">
-                  Primary Contact Name:
-                </label>
-                <input
-                  type="text"
-                  id="primaryContact"
-                  name="primaryContact"
-                  value={formData.primaryContact}
-                  onChange={handleChange}
-                  className="border p-2 rounded"
-                />
-              </div>
-              <div className="flex flex-col">
-                <label htmlFor="email" className="font-semibold">
-                  Email Address:
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="border p-2 rounded"
-                />
-              </div>
-              <div className="flex flex-col">
-                <label htmlFor="phone" className="font-semibold">
-                  Phone Number:
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="border p-2 rounded"
-                />
-              </div>
-              <div className="flex flex-col">
-                <label htmlFor="website" className="font-semibold">
-                  Company Website:
-                </label>
-                <input
-                  type="text"
-                  id="website"
-                  name="website"
-                  value={formData.website}
-                  onChange={handleChange}
-                  className="border p-2 rounded"
-                />
-              </div>
-              <div className="flex flex-col">
-                <label htmlFor="address" className="font-semibold">
-                  Company Address:
-                </label>
-                <input
-                  type="text"
-                  id="address"
-                  name="address"
-                  value={formData.address}
-                  onChange={handleChange}
-                  className="border p-2 rounded"
-                />
-              </div>
-              <div className="flex flex-col">
-                <label
-                  htmlFor="companyDescription"
-                  className="font-semibold"
-                >
-                  Briefly describe your company and its connection to the Texas
-                  CPG industry:
-                </label>
-                <textarea
-                  id="companyDescription"
-                  name="companyDescription"
-                  value={formData.companyDescription}
-                  onChange={handleChange}
-                  className="border p-2 rounded"
-                />
-              </div>
-            </div>
-
-            <h2 className="text-2xl font-bold mt-8 mb-4">
-              SPONSORSHIP INTEREST
-            </h2>
-
+            ))}
             <div className="flex flex-col">
-              <h3 className="font-bold mb-2">
-                Have you sponsored similar events before?
-              </h3>
-              <label className="flex items-center">
-                <input
-                  type="radio"
-                  name="sponsoredBefore"
-                  value="Yes"
-                  checked={formData.sponsoredBefore === 'Yes'}
-                  onChange={handleChange}
-                  className="mr-2"
-                />
-                Yes
-              </label>
-              <label className="flex items-center">
-                <input
-                  type="radio"
-                  name="sponsoredBefore"
-                  value="No"
-                  checked={formData.sponsoredBefore === 'No'}
-                  onChange={handleChange}
-                  className="mr-2"
-                />
-                No
-              </label>
-            </div>
-
-            {formData.sponsoredBefore === 'Yes' && (
-              <div className="flex flex-col">
-                <label htmlFor="sponsorshipDetails" className="font-semibold">
-                  If yes, please provide details:
-                </label>
-                <textarea
-                  id="sponsorshipDetails"
-                  name="sponsorshipDetails"
-                  value={formData.sponsorshipDetails}
-                  onChange={handleChange}
-                  className="border p-2 rounded"
-                />
-              </div>
-            )}
-
-            <div className="flex flex-col">
-              <h3 className="font-bold mb-2">
-                What are your primary goals for sponsoring Rooted Expo?
-              </h3>
-              {[
-                'Brand Visibility',
-                'Lead Generation',
-                'Networking with Industry Leaders',
-                'Supporting Local Businesses',
-                'Product Launch',
-              ].map((goal) => (
-                <label key={goal} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    name="goals"
-                    value={goal}
-                    checked={formData.goals.includes(goal)}
-                    onChange={handleChange}
-                    className="mr-2"
-                  />
-                  {goal}
-                </label>
-              ))}
-            </div>
-
-            <div className="flex flex-col">
-              <h3 className="font-bold mb-2">
-                Which of the following opportunities would you be interested in?
-              </h3>
-              {[
-                'Speaking Engagement',
-                'Booth Space',
-                'Product Sampling',
-                'Digital Advertising',
-                'Event Program Listing',
-                'VIP Event Access',
-                'Other',
-              ].map((opportunity) => (
-                <label key={opportunity} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    name="opportunities"
-                    value={opportunity}
-                    checked={formData.opportunities.includes(opportunity)}
-                    onChange={handleChange}
-                    className="mr-2"
-                  />
-                  {opportunity}
-                </label>
-              ))}
-            </div>
-
-            <div className="flex flex-col">
-              <label htmlFor="additionalInfo" className="font-semibold">
-                Please provide any additional information or special requests:
+              <label htmlFor="companyDescription" className="font-semibold text-gray-600">
+                Briefly describe your company and its connection to the Texas CPG industry:
               </label>
               <textarea
-                id="additionalInfo"
-                name="additionalInfo"
-                value={formData.additionalInfo}
+                id="companyDescription"
+                name="companyDescription"
+                value={formData.companyDescription}
                 onChange={handleChange}
-                className="border p-2 rounded"
+                className="border border-gray-300 p-2 rounded-md focus:outline-none focus:border-blue-400"
               />
             </div>
+          </div>
 
-            <button
-              type="submit"
-              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mt-4"
-            >
-              Submit
-            </button>
-          </form>
-        </div>
+          <h2 className="text-3xl font-bold text-gray-700 mt-8">Sponsorship Interest</h2>
+
+          <div className="flex flex-col space-y-4">
+            <h3 className="font-semibold text-gray-600">Have you sponsored similar events before?</h3>
+            {['Yes', 'No'].map((option) => (
+              <label key={option} className="flex items-center text-gray-600">
+                <input
+                  type="radio"
+                  name="sponsoredBefore"
+                  value={option}
+                  checked={formData.sponsoredBefore === option}
+                  onChange={handleChange}
+                  className="mr-2"
+                />
+                {option}
+              </label>
+            ))}
+          </div>
+
+          {formData.sponsoredBefore === 'Yes' && (
+            <div className="flex flex-col">
+              <label htmlFor="sponsorshipDetails" className="font-semibold text-gray-600">
+                If yes, please provide details:
+              </label>
+              <textarea
+                id="sponsorshipDetails"
+                name="sponsorshipDetails"
+                value={formData.sponsorshipDetails}
+                onChange={handleChange}
+                className="border border-gray-300 p-2 rounded-md focus:outline-none focus:border-blue-400"
+              />
+            </div>
+          )}
+
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700 transition duration-200"
+          >
+            Submit
+          </button>
+        </form>
       </div>
 
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-4 rounded shadow-lg">
-            <p>
-              Thank you for your submission! Redirecting you to the homepage...
-            </p>
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+            <p className="text-lg">Thank you for your submission! Redirecting you to the homepage...</p>
           </div>
         </div>
       )}
-
       <Footer />
     </div>
   );

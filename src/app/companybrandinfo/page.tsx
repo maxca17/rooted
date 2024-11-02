@@ -101,24 +101,25 @@ export default function CompanyBrandInfo() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="flex-grow py-8 px-8 lg:py-20">
-        <div className="flex flex-col md:flex-row items-start justify-center">
-          <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
-            <Image
-              src="/images/Joinus.png"
-              alt="Windmill"
-              width={400}
-              height={400}
-              className="w-full h-auto"
-            />
-          </div>
+      <div className="flex flex-col lg:flex-row items-stretch">
+        
+        {/* Left Image Section */}
+        <div className="lg:w-1/2 h-screen relative">
+          <Image
+            src="/image/boots.png"
+            alt="Brand image"
+            layout="fill"
+            objectFit="cover"
+            className="lg:rounded-lg shadow-lg"
+          />
+        </div>
 
+        {/* Form Section */}
+        <div className="flex-grow lg:w-1/2 py-12 px-8 lg:px-16 bg-white overflow-y-auto">
           {formStep === 1 && (
-            <form
-              className="md:w-1/2 flex flex-col space-y-4"
-              onSubmit={handleNext}
-            >
-              <h2 className="text-2xl font-bold mb-4">COMPANY INFORMATION</h2>
+            <form className="max-w-lg mx-auto space-y-6" onSubmit={handleNext}>
+              <h2 className="text-3xl font-bold mb-6">Company Information</h2>
+              
               <div className="grid grid-cols-1 gap-4">
                 <div className="flex flex-col">
                   <label htmlFor="companyName" className="font-semibold">
@@ -200,12 +201,9 @@ export default function CompanyBrandInfo() {
                 </div>
               </div>
 
-              <h2 className="text-2xl font-bold mt-8 mb-4">BRAND INFORMATION</h2>
+              <h2 className="text-3xl font-bold my-6">Brand Information</h2>
               <div className="flex flex-col">
-                <label
-                  htmlFor="brandDescription"
-                  className="font-semibold mb-2"
-                >
+                <label htmlFor="brandDescription" className="font-semibold">
                   Briefly describe your brand and its product offerings:
                 </label>
                 <textarea
@@ -218,7 +216,7 @@ export default function CompanyBrandInfo() {
               </div>
 
               <div className="flex flex-col">
-                <h3 className="font-bold mb-2">
+                <h3 className="font-semibold mb-2">
                   What category does your brand primarily fall under?
                 </h3>
                 {[
@@ -243,55 +241,9 @@ export default function CompanyBrandInfo() {
                 ))}
               </div>
 
-              <div className="flex flex-col">
-                <h3 className="font-bold mb-2">
-                  What is the size of your brand in terms of annual revenue?
-                </h3>
-                {[
-                  'Under $1 million',
-                  '$1 million - $5 million',
-                  '$5 million - $10 million',
-                  '$10 million - $50 million',
-                  'Over $50 million',
-                ].map((revenue) => (
-                  <label key={revenue} className="flex items-center">
-                    <input
-                      type="radio"
-                      name="revenue"
-                      value={revenue}
-                      checked={formData.revenue === revenue}
-                      onChange={handleChange}
-                      className="mr-2"
-                    />
-                    {revenue}
-                  </label>
-                ))}
-              </div>
-
-              <div className="flex flex-col">
-                <h3 className="font-bold mb-2">
-                  What is your target market within the CPG space?
-                </h3>
-                {['Local (Texas)', 'Regional (Southwest)', 'National', 'International'].map(
-                  (market) => (
-                    <label key={market} className="flex items-center">
-                      <input
-                        type="radio"
-                        name="targetMarket"
-                        value={market}
-                        checked={formData.targetMarket === market}
-                        onChange={handleChange}
-                        className="mr-2"
-                      />
-                      {market}
-                    </label>
-                  )
-                )}
-              </div>
-
               <button
                 type="submit"
-                className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mt-4"
+                className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 mt-4"
               >
                 Next
               </button>
@@ -299,14 +251,11 @@ export default function CompanyBrandInfo() {
           )}
 
           {formStep === 2 && (
-            <form
-              className="md:w-1/2 flex flex-col space-y-4"
-              onSubmit={handleSubmit}
-            >
-              <h2 className="text-2xl font-bold mb-4">EXHIBITION NEEDS</h2>
-
+            <form className="max-w-lg mx-auto space-y-6" onSubmit={handleSubmit}>
+              <h2 className="text-3xl font-bold mb-6">Exhibition Needs</h2>
+              
               <div className="flex flex-col">
-                <h3 className="font-bold mb-2">Preferred Booth Size:</h3>
+                <h3 className="font-semibold mb-2">Preferred Booth Size:</h3>
                 {['10x10', '10x20', '20x20', 'Custom Size'].map((booth) => (
                   <label key={booth} className="flex items-center">
                     <input
@@ -322,119 +271,9 @@ export default function CompanyBrandInfo() {
                 ))}
               </div>
 
-              <div className="flex flex-col">
-                <h3 className="font-bold mb-2">
-                  Do you require any special accommodations or features for your
-                  booth?
-                </h3>
-                <label className="flex items-center">
-                  <input
-                    type="radio"
-                    name="specialAccommodations"
-                    value="Yes"
-                    checked={formData.specialAccommodations === 'Yes'}
-                    onChange={handleChange}
-                    className="mr-2"
-                  />
-                  Yes
-                </label>
-                <label className="flex items-center">
-                  <input
-                    type="radio"
-                    name="specialAccommodations"
-                    value="No"
-                    checked={formData.specialAccommodations === 'No'}
-                    onChange={handleChange}
-                    className="mr-2"
-                  />
-                  No
-                </label>
-              </div>
-
-              {formData.specialAccommodations === 'Yes' && (
-                <div className="flex flex-col">
-                  <label
-                    htmlFor="specialRequirements"
-                    className="font-semibold"
-                  >
-                    If yes, please specify:
-                  </label>
-                  <textarea
-                    id="specialRequirements"
-                    name="specialRequirements"
-                    value={formData.specialRequirements}
-                    onChange={handleChange}
-                    className="border p-2 rounded"
-                  />
-                </div>
-              )}
-
-              <h2 className="text-2xl font-bold mt-8 mb-4">
-                ADDITIONAL INFORMATION
-              </h2>
-
-              <div className="flex flex-col">
-                <h3 className="font-bold mb-2">
-                  Have you exhibited at Rooted Expo or similar events before?
-                </h3>
-                <label className="flex items-center">
-                  <input
-                    type="radio"
-                    name="exhibitedBefore"
-                    value="Yes"
-                    checked={formData.exhibitedBefore === 'Yes'}
-                    onChange={handleChange}
-                    className="mr-2"
-                  />
-                  Yes
-                </label>
-                <label className="flex items-center">
-                  <input
-                    type="radio"
-                    name="exhibitedBefore"
-                    value="No"
-                    checked={formData.exhibitedBefore === 'No'}
-                    onChange={handleChange}
-                    className="mr-2"
-                  />
-                  No
-                </label>
-              </div>
-
-              {formData.exhibitedBefore === 'Yes' && (
-                <div className="flex flex-col">
-                  <label
-                    htmlFor="exhibitionDetails"
-                    className="font-semibold"
-                  >
-                    If yes, please provide details:
-                  </label>
-                  <textarea
-                    id="exhibitionDetails"
-                    name="exhibitionDetails"
-                    value={formData.exhibitionDetails}
-                    onChange={handleChange}
-                    className="border p-2 rounded"
-                  />
-                </div>
-              )}
-
-              <div className="flex flex-col">
-                <label htmlFor="comments" className="font-semibold">
-                  Please provide any additional comments or requests:
-                </label>
-                <textarea
-                  id="comments"
-                  name="comments"
-                  value={formData.comments}
-                  onChange={handleChange}
-                  className="border p-2 rounded"
-                />
-              </div>
-
               <button
                 type="submit"
-                className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 mt-4"
+                className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 mt-4"
               >
                 Submit
               </button>

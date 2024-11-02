@@ -96,26 +96,27 @@ export default function Buyer() {
     }
   };
 
-  return (
-    <div className="flex flex-col min-h-screen">
+  return  (
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <Navbar />
-      <div className="flex-grow py-8 px-8 lg:py-20">
-        <div className="flex flex-col md:flex-row items-start justify-center">
-          <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
-            <Image
-              src="/images/joinrooted.png"
-              alt="City skyline"
-              width={400}
-              height={400}
-              className="w-full h-auto"
-            />
-          </div>
+      <div className="flex flex-col lg:flex-row items-stretch">
+        
+        {/* Left Image Section */}
+        <div className="lg:w-1/2 h-screen relative">
+          <Image
+            src="/image/boots.png"
+            alt="Boots display"
+            layout="fill"
+            objectFit="cover"
+            className="lg:rounded-lg shadow-lg"
+          />
+        </div>
+        
+        {/* Form Section */}
+        <div className="flex-grow lg:w-1/2 py-12 px-8 lg:px-16 bg-white">
+          <form className="max-w-lg mx-auto space-y-6" onSubmit={handleSubmit}>
+            <h2 className="text-3xl font-bold mb-6">Company Information</h2>
 
-          <form
-            className="md:w-1/2 flex flex-col space-y-4"
-            onSubmit={handleSubmit}
-          >
-            <h2 className="text-2xl font-bold mb-4">COMPANY INFORMATION</h2>
             <div className="grid grid-cols-1 gap-4">
               <div className="flex flex-col">
                 <label htmlFor="companyName" className="font-semibold">
@@ -196,12 +197,8 @@ export default function Buyer() {
                 />
               </div>
               <div className="flex flex-col">
-                <label
-                  htmlFor="companyDescription"
-                  className="font-semibold"
-                >
-                  Briefly describe your company and its connection to the Texas
-                  CPG industry:
+                <label htmlFor="companyDescription" className="font-semibold">
+                  Briefly describe your company and its connection to the Texas CPG industry:
                 </label>
                 <textarea
                   id="companyDescription"
@@ -213,14 +210,14 @@ export default function Buyer() {
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold my-4">SPONSORSHIP INTEREST</h2>
+            <h2 className="text-3xl font-bold my-6">Sponsorship Interest</h2>
 
             <div className="flex flex-col">
-              <h3 className="font-bold mb-2">
+              <h3 className="font-semibold mb-2">
                 Have you sponsored similar events before?
               </h3>
-              <div className="flex items-center">
-                <label className="mr-4">
+              <div className="flex items-center space-x-4">
+                <label className="flex items-center">
                   <input
                     type="radio"
                     name="sponsoredBefore"
@@ -231,7 +228,7 @@ export default function Buyer() {
                   />
                   Yes
                 </label>
-                <label>
+                <label className="flex items-center">
                   <input
                     type="radio"
                     name="sponsoredBefore"
@@ -261,7 +258,7 @@ export default function Buyer() {
             )}
 
             <div className="flex flex-col">
-              <h3 className="font-bold mb-2">
+              <h3 className="font-semibold mb-2">
                 What are your primary goals for sponsoring Rooted Expo?
               </h3>
               {[
@@ -286,7 +283,7 @@ export default function Buyer() {
             </div>
 
             <div className="flex flex-col">
-              <h3 className="font-bold mb-2">
+              <h3 className="font-semibold mb-2">
                 Which of the following opportunities would you be interested in?
               </h3>
               {[
@@ -327,22 +324,22 @@ export default function Buyer() {
 
             <button
               type="submit"
-              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mt-4"
+              className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
             >
               Submit
             </button>
           </form>
         </div>
       </div>
+
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-4 rounded shadow-lg">
-            <p>
-              Thank you for your submission! Redirecting you to the homepage...
-            </p>
+            <p>Thank you for your submission! Redirecting you to the homepage...</p>
           </div>
         </div>
       )}
+
       <Footer />
     </div>
   );

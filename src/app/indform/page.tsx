@@ -28,14 +28,12 @@ export default function IndividualForm() {
   const [showPopup, setShowPopup] = useState(false);
 
   const [formData, setFormData] = useState<FormData>({
-    // Form Step 1 Data
     name: '',
     email: '',
     phone: '',
     reason: '',
     categories: [],
     hear_about: [],
-    // Form Step 2 Data
     booth_size: [],
     special_accommodations: '',
     special_requirements: '',
@@ -47,7 +45,7 @@ export default function IndividualForm() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value, type } = e.target;
-    const checked = (e.target as HTMLInputElement).checked; // Type assertion to access checked property
+    const checked = (e.target as HTMLInputElement).checked;
 
     if (type === 'checkbox') {
       setFormData((prevData) => {
@@ -75,7 +73,7 @@ export default function IndividualForm() {
     e.preventDefault();
     try {
       const { data, error } = await supabase
-        .from('individual_submissions') // Ensure this matches your table name
+        .from('individual_submissions')
         .insert([formData]);
 
       if (error) {
@@ -95,24 +93,25 @@ export default function IndividualForm() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="flex-grow py-8 px-8 lg:py-20">
-        <div className="flex flex-col md:flex-row items-start justify-center">
-          <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
-            <Image
-              src="/images/Joinus.png"
-              alt="Windmill"
-              width={400}
-              height={400}
-              className="w-full h-auto"
-            />
-          </div>
+      <div className="flex flex-col lg:flex-row items-stretch">
+        
+        {/* Left Image Section */}
+        <div className="lg:w-1/2 h-screen relative">
+          <Image
+            src="/image/boots.png"
+            alt="Windmill"
+            layout="fill"
+            objectFit="cover"
+            className="lg:rounded-lg shadow-lg"
+          />
+        </div>
 
+        {/* Form Section */}
+        <div className="flex-grow lg:w-1/2 py-12 px-8 lg:px-16 bg-white overflow-y-auto">
           {formStep === 1 && (
-            <form
-              className="md:w-1/2 flex flex-col space-y-4"
-              onSubmit={handleNext}
-            >
-              <h2 className="text-2xl font-bold mb-4">PERSONAL INFORMATION</h2>
+            <form className="max-w-lg mx-auto space-y-6" onSubmit={handleNext}>
+              <h2 className="text-3xl font-bold mb-6">Personal Information</h2>
+
               <div className="grid grid-cols-1 gap-4">
                 <div className="flex flex-col">
                   <label htmlFor="name" className="font-semibold">
@@ -155,9 +154,8 @@ export default function IndividualForm() {
                 </div>
               </div>
 
-              <h2 className="text-2xl font-bold mt-8 mb-4">
-                PARTICIPANT DETAILS
-              </h2>
+              <h2 className="text-3xl font-bold my-6">Participant Details</h2>
+              
               <div className="flex flex-col">
                 <label htmlFor="reason" className="font-semibold">
                   Why are you interested in attending the Rooted Expo?
@@ -229,18 +227,14 @@ export default function IndividualForm() {
           )}
 
           {formStep === 2 && (
-            <form
-              className="md:w-1/2 flex flex-col space-y-4"
-              onSubmit={handleSubmit}
-            >
-              <h2 className="text-2xl font-bold mb-4">ADDITIONAL INFORMATION</h2>
+            <form className="max-w-lg mx-auto space-y-6" onSubmit={handleSubmit}>
+              <h2 className="text-3xl font-bold mb-6">Additional Information</h2>
 
-              {/* Include any additional form fields for step 2 if needed */}
-              {/* For demonstration, let's assume there are no extra fields */}
+              {/* Add additional fields as needed */}
 
               <button
                 type="submit"
-                className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 mt-4"
+                className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600"
               >
                 Submit
               </button>
@@ -252,9 +246,7 @@ export default function IndividualForm() {
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-4 rounded shadow-lg">
-            <p>
-              Thank you for your submission! Redirecting you to the homepage...
-            </p>
+            <p>Thank you for your submission! Redirecting you to the homepage...</p>
           </div>
         </div>
       )}

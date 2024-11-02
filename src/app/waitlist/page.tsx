@@ -29,7 +29,7 @@ export default function Waitlist() {
         <div className="flex flex-col md:flex-row items-center justify-center">
           <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
             <Image
-              src="/image/pagesimages/Joinus.png"
+              src="/image/road.png"
               alt="Join Us"
               width={300}
               height={300}
@@ -41,7 +41,9 @@ export default function Waitlist() {
               variant="h4" 
               className="font-bold mb-4"
               placeholder="Getting Started"
-              onPointerEnterCapture={() => {}} 
+              onMouseEnter={() => {}} 
+              onMouseLeave={() => {}}
+              onPointerEnterCapture={() => {}}
               onPointerLeaveCapture={() => {}}
             >
               GETTING STARTED
@@ -50,7 +52,9 @@ export default function Waitlist() {
               variant="lead" 
               className="mb-6"
               placeholder="Participation Question"
-              onPointerEnterCapture={() => {}} 
+              onMouseEnter={() => {}} 
+              onMouseLeave={() => {}}
+              onPointerEnterCapture={() => {}}
               onPointerLeaveCapture={() => {}}
             >
               How do you plan on participating in Rooted Expo?
@@ -62,7 +66,9 @@ export default function Waitlist() {
                 fullWidth
                 onClick={handleVendorClick}
                 placeholder="Vendor/Exhibitor"
-                onPointerEnterCapture={() => {}} 
+                onMouseEnter={() => {}} 
+                onMouseLeave={() => {}}
+                onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
                 Vendor/Exhibitor
@@ -73,7 +79,9 @@ export default function Waitlist() {
                 fullWidth
                 onClick={handleIndividualClick}
                 placeholder="Individual"
-                onPointerEnterCapture={() => {}} 
+                onMouseEnter={() => {}} 
+                onMouseLeave={() => {}}
+                onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
                 Individual
@@ -84,7 +92,9 @@ export default function Waitlist() {
                 fullWidth
                 onClick={handleBuyerClick}
                 placeholder="Buyers"
-                onPointerEnterCapture={() => {}} 
+                onMouseEnter={() => {}} 
+                onMouseLeave={() => {}}
+                onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
                 Buyers
