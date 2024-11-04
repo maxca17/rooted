@@ -74,7 +74,7 @@ export default function Waitlist() {
                 Vendor/Exhibitor
               </Button>
               <Button
-                color="green"
+                color="blue"
                 variant="filled"
                 fullWidth
                 onClick={handleIndividualClick}
@@ -87,7 +87,7 @@ export default function Waitlist() {
                 Individual
               </Button>
               <Button
-                color="purple"
+                color="blue"
                 variant="filled"
                 fullWidth
                 onClick={handleBuyerClick}
