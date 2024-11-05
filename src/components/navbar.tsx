@@ -146,7 +146,7 @@ export function Navbar() {
         </IconButton>
       </div>
       <Collapse open={open} className="lg:hidden">
-        <div className="container mx-auto mt-4 rounded-lg bg-white px-4 py-4">
+        <div className="container mx-auto rounded-lg bg-white px-4 py-4"> {/* Removed mt-4 for mobile view */}
           <ul className="flex flex-col gap-4 text-gray-900">
             {NAV_MENU.map(({ name, icon: Icon }) => (
               <NavItem key={name}>
