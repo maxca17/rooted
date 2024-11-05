@@ -95,7 +95,7 @@ export function Navbar() {
       fullWidth
       blurred={false}
       color="transparent"
-      className={`fixed top-0 z-50 w-full ${isScrolling ? 'bg-transparent' : ''}`} // Changed to keep background clear
+      className={`fixed top-0 z-50 w-full ${isScrolling ? 'bg-transparent' : ''} no-margin`} // Added 'no-margin' class
       placeholder="Navbar Placeholder"
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
@@ -146,7 +146,7 @@ export function Navbar() {
         </IconButton>
       </div>
       <Collapse open={open} className="lg:hidden">
-        <div className="container mx-auto rounded-lg bg-white px-4 py-4"> {/* Removed mt-4 for mobile view */}
+        <div className="container mx-auto bg-white px-4 py-4">
           <ul className="flex flex-col gap-4 text-gray-900">
             {NAV_MENU.map(({ name, icon: Icon }) => (
               <NavItem key={name}>
