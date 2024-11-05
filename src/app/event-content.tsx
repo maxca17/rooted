@@ -237,7 +237,7 @@ export default function EventContent() {
                     onPointerEnterCapture={() => {}}
                     onPointerLeaveCapture={() => {}}
                   >
-                    Learn More
+                    <i className="fab fa-linkedin fa-2x text-gray-700"></i>
                   </Button>
                 </div>
               ))}
