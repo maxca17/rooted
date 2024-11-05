@@ -15,6 +15,7 @@ import {
   Bars3Icon,
 } from "@heroicons/react/24/solid";
 import { useRouter } from 'next/navigation'; 
+import Image from 'next/image'; // Import Image from next/image
 
 interface NavItemProps {
   children: React.ReactNode;
@@ -94,23 +95,21 @@ export function Navbar() {
       shadow={false}
       fullWidth
       blurred={false}
-      color={isScrolling ? "white" : "transparent"}
+      color="transparent" // Changed to always be transparent
       className="fixed top-0 z-50 border-0"
       placeholder="Navbar Placeholder"
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
     >
       <div className="container mx-auto flex items-center justify-between">
-        <Typography
-          color={isScrolling ? "blue-gray" : "white"}
-          className="text-lg font-bold cursor-pointer" // Add cursor pointer
-          placeholder="Rooted Expo Placeholder"
-          onPointerEnterCapture={() => {}}
-          onPointerLeaveCapture={() => {}}
+        <Image
+          src="/image/rootedlogo1.png"
+          alt="Rooted Expo Logo"
+          className="cursor-pointer h-42" // Increased height for a bigger logo
           onClick={handleLogoClick} // Add click handler
-        >
-          Rooted Expo
-        </Typography>
+          width={150} // Increased width for a bigger logo
+          height={150} // Increased height for a bigger logo
+        />
         <ul
           className={`ml-10 hidden items-center gap-6 lg:flex ${
             isScrolling ? "text-gray-900" : "text-white"

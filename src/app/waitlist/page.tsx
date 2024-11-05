@@ -27,12 +27,12 @@ export default function Waitlist() {
       <Navbar />
       <div className="flex-grow py-12 px-6 lg:py-24 lg:px-16">
         <div className="flex flex-col md:flex-row items-center justify-center">
-          <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
+          <div className="md:w-1/2 flex justify-center mb-8 md:mb-0 mt-0">
             <Image
               src="/image/road.png"
               alt="Join Us"
-              width={300}
-              height={300}
+              width={210} // Reduced width
+              height={210} // Reduced height
               className="w-full h-auto rounded-lg shadow-lg"
             />
           </div>

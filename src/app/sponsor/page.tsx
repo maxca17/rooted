@@ -101,12 +101,12 @@ export default function Sponsor() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-gray-50 mt-16">
       <Navbar />
       <div className="flex-grow flex flex-col lg:flex-row items-stretch py-10 lg:py-20 px-6 lg:px-20">
         
         {/* Left Image Section */}
-        <div className="lg:w-1/2 h-[500px] lg:h-auto relative">
+        <div className="lg:w-1/2 h-[500px] lg:h-auto relative mr-10">
           <Image
             src="/image/side.png"
             alt="Architectural Dome"

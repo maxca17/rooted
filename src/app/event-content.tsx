@@ -14,6 +14,7 @@ import {
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Image from "next/image";
 
+
 // Data for the Carousel
 const CAROUSEL_CONTENT = [
   {
@@ -99,6 +100,12 @@ const teamMembers = [
     role: "Founder of Mooala",
     image: '/image/jeff.png', 
     link: "https://www.linkedin.com/in/jeffreyrichards"
+  },
+  {
+    name: "Marc Nathan",
+    role: "Professional 'Super Connector' for Tech & CPG companies",
+    image: '/image/marc.png', 
+    link: "https://www.linkedin.com/in/marc1919/"
   }
 ];
 
@@ -174,7 +181,8 @@ export default function EventContent() {
           >
             Our Rooted Team
           </Typography>
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-64 h-1 bg-black" />
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-80 h-1 bg-black" />
+          {/* This line serves as a visual separator under the title "Our Rooted Team", enhancing the overall design and drawing attention to the section. */}
         </div>
 
         <div className="max-w-7xl mx-auto">
@@ -194,7 +202,7 @@ export default function EventContent() {
               {boardMembers.map((member, index) => (
                 <div
                   key={index}
-                  className="bg-white border border-gray-300 rounded-lg p-6 text-center shadow-md flex flex-col"
+                  className="bg-gray-200 border border-gray-300 rounded-lg p-6 text-center shadow-md flex flex-col"
                 >
                   <Image
                     src={member.image}
@@ -252,7 +260,7 @@ export default function EventContent() {
               {teamMembers.map((member, index) => (
                 <div
                   key={index}
-                  className="bg-white border border-gray-300 rounded-lg p-6 text-center shadow-md flex flex-col"
+                  className="bg-gray-200 border border-gray-300 rounded-lg p-6 text-center shadow-md flex flex-col"
                 >
                   <Image
                     src={member.image}
