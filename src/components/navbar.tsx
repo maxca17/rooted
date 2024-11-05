@@ -10,12 +10,11 @@ import {
   RectangleStackIcon,
   UserCircleIcon,
   CommandLineIcon,
-  Squares2X2Icon,
   XMarkIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
-import { useRouter } from 'next/navigation'; 
-import Image from 'next/image'; // Import Image from next/image
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 interface NavItemProps {
   children: React.ReactNode;
@@ -41,16 +40,16 @@ function NavItem({ children, href }: NavItemProps) {
   );
 }
 
-// Commented out NAV_MENU for now
-const NAV_MENU = [
+// NAV_MENU array with commented-out items included
+const NAV_MENU: { name: string; icon: React.ElementType }[] = [
   // {
   //   name: "Page",
   //   icon: RectangleStackIcon,
   // },
-  {
-    name: "Team",
-    icon: UserCircleIcon,
-  },
+  // {
+  //   name: "Team",
+  //   icon: UserCircleIcon,
+  // },
   // {
   //   name: "Docs",
   //   icon: CommandLineIcon,
@@ -61,12 +60,12 @@ const NAV_MENU = [
 export function Navbar() {
   const [open, setOpen] = React.useState(false);
   const [isScrolling, setIsScrolling] = React.useState(false);
-  const router = useRouter(); // Initialize useRouter
+  const router = useRouter();
 
   const handleOpen = () => setOpen((cur) => !cur);
 
   const handleLogoClick = () => {
-    router.push('/'); // Navigate to the main page
+    router.push('/');
   };
 
   React.useEffect(() => {
@@ -95,8 +94,8 @@ export function Navbar() {
       shadow={false}
       fullWidth
       blurred={false}
-      color="transparent" // Set to always be transparent
-      className="fixed top-0 z-50 w-full"
+      color="transparent"
+      className={`fixed top-0 z-50 w-full ${isScrolling ? 'bg-transparent' : ''}`} // Changed to keep background clear
       placeholder="Navbar Placeholder"
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
@@ -105,8 +104,8 @@ export function Navbar() {
         <Image
           src="/image/rootedlogo1.png"
           alt="Rooted Expo Logo"
-          className="cursor-pointer h-42 w-auto" // Keep logo size consistent
-          onClick={handleLogoClick} // Add click handler
+          className="cursor-pointer h-20 lg:h-48 w-auto" // Logo larger on desktop, smaller on mobile
+          onClick={handleLogoClick}
           width={150}
           height={150}
         />
@@ -123,9 +122,9 @@ export function Navbar() {
           ))}
         </ul>
         <div className="hidden items-center gap-4 lg:flex">
-          <Button color={isScrolling ? "gray" : "white"} variant="text" placeholder="Log in Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
+          {/* <Button color={isScrolling ? "gray" : "white"} variant="text" placeholder="Log in Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
             Log in
-          </Button>
+          </Button> */}
           <a href="/sponsor" target="_self">
             <Button color={isScrolling ? "gray" : "white"} placeholder="Become a Sponsor Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>Become a Sponsor</Button>
           </a>
@@ -157,7 +156,7 @@ export function Navbar() {
             ))}
           </ul>
           <div className="mt-4 flex flex-col items-start gap-4">
-            <Button variant="text" placeholder="Log in Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>Log in</Button>
+            {/* <Button variant="text" placeholder="Log in Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>Log in</Button> */}
             <a href="https://www.materila-tailwind.com/blocks" target="_blank">
               <Button color="gray" placeholder="blocks Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>blocks</Button>
             </a>
