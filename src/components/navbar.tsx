@@ -42,21 +42,21 @@ function NavItem({ children, href }: NavItemProps) {
 }
 
 // Commented out NAV_MENU for now
-// const NAV_MENU = [
-//   // {
-//   //   name: "Page",
-//   //   icon: RectangleStackIcon,
-//   // },
-//   {
-//     name: "Team",
-//     icon: UserCircleIcon,
-//   },
-//   // {
-//   //   name: "Docs",
-//   //   icon: CommandLineIcon,
-//   //   href: "https://www.material-tailwind.com/docs/react/installation",
-//   // },
-// ];
+const NAV_MENU = [
+  // {
+  //   name: "Page",
+  //   icon: RectangleStackIcon,
+  // },
+  {
+    name: "Team",
+    icon: UserCircleIcon,
+  },
+  // {
+  //   name: "Docs",
+  //   icon: CommandLineIcon,
+  //   href: "https://www.material-tailwind.com/docs/react/installation",
+  // },
+];
 
 export function Navbar() {
   const [open, setOpen] = React.useState(false);
@@ -95,37 +95,37 @@ export function Navbar() {
       shadow={false}
       fullWidth
       blurred={false}
-      color="transparent" // Changed to always be transparent
-      className="fixed top-0 z-50 border-0"
+      color="transparent" // Set to always be transparent
+      className="fixed top-0 z-50 w-full"
       placeholder="Navbar Placeholder"
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
     >
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between px-4 md:px-8">
         <Image
           src="/image/rootedlogo1.png"
           alt="Rooted Expo Logo"
-          className="cursor-pointer h-42" // Increased height for a bigger logo
+          className="cursor-pointer h-42 w-auto" // Keep logo size consistent
           onClick={handleLogoClick} // Add click handler
-          width={150} // Increased width for a bigger logo
-          height={150} // Increased height for a bigger logo
+          width={150}
+          height={150}
         />
         <ul
-          className={`ml-10 hidden items-center gap-6 lg:flex ${
+          className={`hidden items-center gap-6 lg:flex ${
             isScrolling ? "text-gray-900" : "text-white"
           }`}
         >
-          {/* {NAV_MENU.map(({ name, icon: Icon }) => (
+          {NAV_MENU.map(({ name, icon: Icon }) => (
             <NavItem key={name}>
               <Icon className="h-5 w-5" />
               <span>{name}</span>
             </NavItem>
-          ))} */}
+          ))}
         </ul>
         <div className="hidden items-center gap-4 lg:flex">
-          {/* <Button color={isScrolling ? "gray" : "white"} variant="text" placeholder="Log in Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
+          <Button color={isScrolling ? "gray" : "white"} variant="text" placeholder="Log in Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
             Log in
-          </Button> */}
+          </Button>
           <a href="/sponsor" target="_self">
             <Button color={isScrolling ? "gray" : "white"} placeholder="Become a Sponsor Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>Become a Sponsor</Button>
           </a>
@@ -146,17 +146,17 @@ export function Navbar() {
           )}
         </IconButton>
       </div>
-      <Collapse open={open}>
-        <div className="container mx-auto mt-4 rounded-lg bg-white px-6 py-5">
+      <Collapse open={open} className="lg:hidden">
+        <div className="container mx-auto mt-4 rounded-lg bg-white px-4 py-4">
           <ul className="flex flex-col gap-4 text-gray-900">
-            {/* {NAV_MENU.map(({ name, icon: Icon }) => (
+            {NAV_MENU.map(({ name, icon: Icon }) => (
               <NavItem key={name}>
                 <Icon className="h-5 w-5" />
                 {name}
               </NavItem>
-            ))} */}
+            ))}
           </ul>
-          <div className="mt-6 flex items-center gap-4">
+          <div className="mt-4 flex flex-col items-start gap-4">
             <Button variant="text" placeholder="Log in Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>Log in</Button>
             <a href="https://www.materila-tailwind.com/blocks" target="_blank">
               <Button color="gray" placeholder="blocks Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>blocks</Button>
