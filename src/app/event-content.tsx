@@ -3,22 +3,18 @@
 "use client";
 
 import React from "react";
-import {
-  // Tab,
-  // Tabs,
-  // TabsHeader,
-  Carousel,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
+import { Typography, Button } from "@material-tailwind/react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Image from "next/image";
-
+// @ts-ignore
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 // Data for the Carousel
 const CAROUSEL_CONTENT = [
   {
-    des: "While technology has made the world smaller, there is no substitute for sharing a real, physical experience together. Rooted Expo brings the diverse flavors and styles crafted in every corner of Texas into one convenient setting where we can celebrate the excellence of our far-reaching CPG community.",
+    des: "While technology has made the world smaller, there is no substitute for sharing a real, physical experience together. Rooted Expo brings the diverse flavors and styles crafted in every corner of Texas into one convenient setting where we can celebrate the excellence of our far-reaching CPG community. ",
     name: "Jeff Richards",
     position: "CEO | Founder of Mooala",
     img: "/image/jeffr.png",
@@ -30,7 +26,7 @@ const CAROUSEL_CONTENT = [
     img: "/image/austin.png",
   },
   {
-    des: "Finally, a time and place for Texas CPG brands to display their wares in Texas. In line with Texas' entrepreneurial spirit, it is a trade show for the people and by the people and not at the undue expense of the people. The show will serve everyone interested in and passionate about CPG. Come one, come all!",
+    des: "Finally, a time and place for Texas CPG brands to display their wares in Texas.  In line with Texas’ entrepreneurial spirit, it is a trade show for the people and by the people and not at the undue expense of the people.  The show will serve everyone interested in and passionate about CPG.  Come one, come all!",
     name: "Richard G. Riccardi",
     position: "Co-Founder of DFW CPG | Blogger",
     img: "/image/richard.png",
@@ -42,17 +38,12 @@ const CAROUSEL_CONTENT = [
     img: "/image/rickjordan.png",
   },
   {
-    des: "This is a fantastic chance to showcase Texas brands—a symbol of the state's entrepreneurial spirit. I can't wait!",
+    des: "This is a fantastic chance to showcase Texas brands - a symbol of the state's entrepreneurial spirit. I can't wait!",
     name: "Michelle Breyer",
     position: "Chief Marketing Officer at SKU",
     img: "/image/michelle.png",
   },
 ];
-
-
-
-
-
 
 // Data for the Team Section
 const boardMembers = [
@@ -109,61 +100,80 @@ const teamMembers = [
   }
 ];
 
+interface ArrowProps {
+  onClick: () => void;
+}
+
+function PrevArrow({ onClick }: ArrowProps) {
+  return (
+    <button
+      onClick={onClick}
+      className="absolute top-1/2 left-4 transform -translate-y-1/2 p-2 bg-black rounded-full shadow-lg focus:outline-none z-10"
+      style={{ transform: "translateY(-50%)" }}
+    >
+      <i className="fas fa-chevron-left fa-lg text-white"></i>
+    </button>
+  );
+}
+
+function NextArrow({ onClick }: ArrowProps) {
+  return (
+    <button
+      onClick={onClick}
+      className="absolute top-1/2 right-4 transform -translate-y-1/2 p-2 bg-black rounded-full shadow-lg focus:outline-none z-10"
+      style={{ transform: "translateY(-50%)" }}
+    >
+      <i className="fas fa-chevron-right fa-lg text-white"></i>
+    </button>
+  );
+}
 
 export default function EventContent() {
+  const settings = {
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    speed: 1000,
+    fade: true,
+    arrows: true,
+    prevArrow: <PrevArrow onClick={() => {}} />,
+    nextArrow: <NextArrow onClick={() => {}} />,
+    pauseOnHover: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   return (
     <section className="py-8 px-8 lg:py-20 bg-white">
       {/* Carousel */}
       <div className="mx-auto container">
-        <div className="mt-12">
-          <Carousel
-            autoplay
-            loop
-            className="rounded-xl h-96"
-            transition={{ duration: 1 }}
-            prevArrow={({ handlePrev }) => (
-              <button
-                onClick={handlePrev}
-                className="absolute top-1/2 left-4 transform -translate-y-1/2 p-2 bg-black rounded-full shadow-lg focus:outline-none"
-              >
-                <i className="fas fa-chevron-left fa-lg text-white"></i>
-              </button>
-            )}
-            nextArrow={({ handleNext }) => (
-              <button
-                onClick={handleNext}
-                className="absolute top-1/2 right-4 transform -translate-y-1/2 p-2 bg-black rounded-full shadow-lg focus:outline-none"
-              >
-                <i className="fas fa-chevron-right fa-lg text-white"></i>
-              </button>
-            )}
-            placeholder=""
-            onPointerEnterCapture={() => {}}
-            onPointerLeaveCapture={() => {}}
-          >
+        <div className="mt-12 relative">
+          <Slider {...settings}>
             {CAROUSEL_CONTENT.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center justify-center h-full text-center bg-white"
+                className="flex flex-col items-center justify-center min-h-[400px] text-center bg-white"
               >
-                <Image
-                  src={item.img}
-                  className="rounded-full mb-4 shadow-lg"
-                  alt={`${item.name} avatar`}
-                  width={90}
-                  height={90}
-                />
-                <p className="italic text-lg text-gray-800 max-w-2xl mx-auto px-4">
-                  <i className="fas fa-quote-left fa-lg text-gray-500 mr-2"></i>
-                  {item.des}
-                </p>
-                <h5 className="mt-4 text-xl font-semibold text-black">
-                  {item.name}
-                </h5>
-                <p className="text-gray-600">{item.position}</p>
+                <div className="flex flex-col items-center justify-center px-4">
+                  <Image
+                    src={item.img}
+                    className="rounded-full mb-4 shadow-lg object-cover"
+                    alt={`${item.name} avatar`}
+                    width={90}
+                    height={90}
+                  />
+                  <p className="italic text-lg text-gray-800 max-w-2xl mx-auto">
+                    <i className="fas fa-quote-left fa-lg text-gray-500 mr-2"></i>
+                    {item.des}
+                  </p>
+                  <h5 className="mt-4 text-xl font-semibold text-black">
+                    {item.name}
+                  </h5>
+                  <p className="text-gray-600">{item.position}</p>
+                </div>
               </div>
             ))}
-          </Carousel>
+          </Slider>
         </div>
       </div>
 
@@ -182,7 +192,6 @@ export default function EventContent() {
             Our Rooted Team
           </Typography>
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-80 h-1 bg-black" />
-          {/* This line serves as a visual separator under the title "Our Rooted Team", enhancing the overall design and drawing attention to the section. */}
         </div>
 
         <div className="max-w-7xl mx-auto">
@@ -211,21 +220,10 @@ export default function EventContent() {
                     height={120}
                     className="rounded-full mx-auto mb-4 object-cover"
                   />
-                  <Typography
-                    variant="h5"
-                    className="font-bold mb-2 text-black"
-                    placeholder=""
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
-                  >
+                  <Typography variant="h5" className="font-bold mb-2 text-black" placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
                     {member.name}
                   </Typography>
-                  <Typography
-                    className="text-gray-700 mb-4"
-                    placeholder=""
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
-                  >
+                  <Typography className="text-gray-700 mb-4" placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
                     {member.role}
                   </Typography>
                   <Button
@@ -269,21 +267,10 @@ export default function EventContent() {
                     height={120}
                     className="rounded-full mx-auto mb-4 object-cover"
                   />
-                  <Typography
-                    variant="h5"
-                    className="font-bold mb-2 text-black"
-                    placeholder=""
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
-                  >
+                  <Typography variant="h5" className="font-bold mb-2 text-black" placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
                     {member.name}
                   </Typography>
-                  <Typography
-                    className="text-gray-700 mb-4"
-                    placeholder=""
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
-                  >
+                  <Typography className="text-gray-700 mb-4" placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
                     {member.role}
                   </Typography>
                   <Button

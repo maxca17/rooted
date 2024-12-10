@@ -23,86 +23,80 @@ export default function Waitlist() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
-      <div className="flex-grow py-12 px-6 lg:py-24 lg:px-16">
-        <div className="flex flex-col md:flex-row items-center justify-center">
-          <div className="md:w-1/2 flex justify-center mb-8 md:mb-0 mt-0">
-            <Image
-              src="/image/road.png"
-              alt="Join Us"
-              width={210} // Reduced width
-              height={210} // Reduced height
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
-          </div>
-          <div className="md:w-1/2 flex flex-col items-center text-center mt-8 md:mt-0">
-            <Typography 
-              variant="h4" 
-              className="font-bold mb-4"
-              placeholder="Getting Started"
-              onMouseEnter={() => {}} 
-              onMouseLeave={() => {}}
+
+      <div className="flex-grow flex flex-col justify-center px-4 py-12 lg:py-20 lg:px-8">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Text and Buttons Section */}
+          <div>
+            <Typography
+              variant="h3"
+              className="font-bold mb-4 text-gray-900"
+              placeholder="Header Placeholder"
               onPointerEnterCapture={() => {}}
               onPointerLeaveCapture={() => {}}
             >
               GETTING STARTED
             </Typography>
-            <Typography 
-              variant="lead" 
-              className="mb-6"
-              placeholder="Participation Question"
-              onMouseEnter={() => {}} 
-              onMouseLeave={() => {}}
+            <Typography
+              variant="lead"
+              className="mb-8 text-gray-700"
+              placeholder="Lead Placeholder"
               onPointerEnterCapture={() => {}}
               onPointerLeaveCapture={() => {}}
             >
               How do you plan on participating in Rooted Expo?
             </Typography>
-            <div className="flex flex-col space-y-4 w-full px-4">
+            <div className="flex flex-col space-y-4 max-w-sm">
               <Button
                 color="blue"
                 variant="filled"
-                fullWidth
                 onClick={handleVendorClick}
-                placeholder="Vendor/Exhibitor"
-                onMouseEnter={() => {}} 
-                onMouseLeave={() => {}}
+                placeholder="Exhibit Button"
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
-                Vendor/Exhibitor
+                EXHIBIT
               </Button>
               <Button
                 color="blue"
                 variant="filled"
-                fullWidth
                 onClick={handleIndividualClick}
-                placeholder="Individual"
-                onMouseEnter={() => {}} 
-                onMouseLeave={() => {}}
+                placeholder="Attend Button"
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
-                Individual
+                ATTEND
               </Button>
               <Button
                 color="blue"
                 variant="filled"
-                fullWidth
                 onClick={handleBuyerClick}
-                placeholder="Buyers"
-                onMouseEnter={() => {}} 
-                onMouseLeave={() => {}}
+                placeholder="Buyers Button"
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
-                Buyers
+                BUYERS
               </Button>
+            </div>
+          </div>
+
+          {/* Image Section */}
+          <div className="flex justify-center">
+            <div className="relative w-full max-w-md">
+              <Image
+                src="/image/road.png"
+                alt="Join Us"
+                width={500}
+                height={500}
+                className="w-full h-auto rounded-lg shadow-md object-cover"
+              />
             </div>
           </div>
         </div>
       </div>
+
       <Footer />
     </div>
   );
