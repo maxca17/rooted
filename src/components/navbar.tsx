@@ -14,7 +14,7 @@ import {
   XMarkIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import Image from 'next/image';
 
 interface NavItemProps {
@@ -62,6 +62,7 @@ export function Navbar() {
   const [open, setOpen] = React.useState(false);
   const [isScrolling, setIsScrolling] = React.useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleOpen = () => setOpen((cur) => !cur);
 
@@ -78,38 +79,46 @@ export function Navbar() {
 
   React.useEffect(() => {
     function handleScroll() {
-      if (window.scrollY > 0) {
+      // If we are not on the root path, we treat it as if we've scrolled already
+      if (pathname !== '/') {
         setIsScrolling(true);
       } else {
-        setIsScrolling(false);
+        // On the root path, revert to original behavior
+        if (window.scrollY > 0) {
+          setIsScrolling(true);
+        } else {
+          setIsScrolling(false);
+        }
       }
     }
 
+    handleScroll(); // Call immediately to set initial state
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   return (
     <MTNavbar
       shadow={false}
       fullWidth
-      blurred={false}
+      blurred={true}
       color="transparent"
-      className={`fixed top-0 z-50 w-full ${isScrolling ? 'bg-transparent' : ''} no-padding no-margin`} // Ensures no padding or margin
+      className={`fixed top-0 z-50 w-full h-20 ${isScrolling ? 'bg-black bg-opacity-50 backdrop-blur-md' : 'bg-transparent'} no-padding no-margin`}
       placeholder="Navbar Placeholder"
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
     >
-      <div className="container mx-auto flex items-center justify-between px-0 md:px-8 py-0"> {/* Remove horizontal padding */}
+      <div className="container mx-auto flex items-center justify-between px-0 md:px-0.5 py-0 h-full">
         <Image
           src="/image/rootedlogo1.png"
           alt="Rooted Expo Logo"
-          className="cursor-pointer h-20 lg:h-48 w-auto mt-0" // Explicitly set margin to zero
+          className="cursor-pointer w-auto"
           onClick={handleLogoClick}
-          width={150}
-          height={150}
+          width={100}
+          height={100}
         />
+
         <ul
           className={`hidden items-center gap-6 lg:flex ${
             isScrolling ? "text-gray-900" : "text-white"
@@ -124,7 +133,14 @@ export function Navbar() {
         </ul>
         <div className="hidden items-center gap-4 lg:flex">
           <a href="/sponsor" target="_self">
-            <Button color={isScrolling ? "gray" : "white"} placeholder="Become a Sponsor Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>Become a Sponsor</Button>
+            <Button
+              color={isScrolling ? "gray" : "white"}
+              placeholder="Become a Sponsor Placeholder"
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
+            >
+              Become a Sponsor
+            </Button>
           </a>
         </div>
         <IconButton
@@ -144,7 +160,7 @@ export function Navbar() {
         </IconButton>
       </div>
       <Collapse open={open} className="lg:hidden">
-        <div className="container mx-auto bg-white px-4 py-4">
+        <div className="container mx-auto bg-white px-1 py-1">
           <ul className="flex flex-col gap-4 text-gray-900">
             {NAV_MENU.map(({ name, icon: Icon }) => (
               <NavItem key={name}>
@@ -155,7 +171,14 @@ export function Navbar() {
           </ul>
           <div className="mt-4 flex flex-col items-start gap-4">
             <a href="https://www.materila-tailwind.com/blocks" target="_blank">
-              <Button color="gray" placeholder="blocks Placeholder" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>blocks</Button>
+              <Button
+                color="gray"
+                placeholder="blocks Placeholder"
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                blocks
+              </Button>
             </a>
           </div>
         </div>
