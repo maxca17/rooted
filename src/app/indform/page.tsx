@@ -91,20 +91,22 @@ export default function IndividualForm() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <Navbar />
-      <div className="flex flex-col lg:flex-row items-stretch">
-        
-        {/* Left Image Section */}
-        <div className="lg:w-1/2 h-screen relative">
-          <Image
-            src="/image/boots.png"
-            alt="Windmill"
-            layout="fill"
-            objectFit="cover"
-            className="lg:rounded-lg shadow-lg"
-          />
-        </div>
+      {/* Add padding-top to push content below the navbar */}
+      <div className="flex flex-col lg:flex-row items-stretch mb-24 pt-24">
+        {/* Left Image Section - Visible only on the first step */}
+        {formStep === 1 && (
+          <div className="lg:w-1/2 h-screen relative">
+            <Image
+              src="/image/boots.png"
+              alt="Windmill"
+              fill
+              style={{ objectFit: 'cover' }}
+              className="lg:rounded-lg shadow-lg"
+            />
+          </div>
+        )}
 
         {/* Form Section */}
         <div className="flex-grow lg:w-1/2 py-12 px-8 lg:px-16 bg-white overflow-y-auto">
@@ -230,7 +232,7 @@ export default function IndividualForm() {
             <form className="max-w-lg mx-auto space-y-6" onSubmit={handleSubmit}>
               <h2 className="text-3xl font-bold mb-6">Additional Information</h2>
 
-              {/* Add additional fields as needed */}
+              {/* Additional fields can be added here as needed */}
 
               <button
                 type="submit"
@@ -251,7 +253,10 @@ export default function IndividualForm() {
         </div>
       )}
 
-      <Footer />
+      {/* Fixed Footer at the bottom */}
+      <div className="fixed bottom-0 w-full bg-white">
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -104,7 +104,7 @@ export function Navbar() {
       fullWidth
       blurred={true}
       color="transparent"
-      className={`fixed top-0 z-50 w-full h-20 ${isScrolling ? 'bg-black bg-opacity-50 backdrop-blur-md' : 'bg-transparent'} no-padding no-margin`}
+      className={`fixed top-0 z-50 w-full h-24 ${isScrolling ? 'bg-black bg-opacity-50 backdrop-blur-md' : 'bg-transparent'} no-padding no-margin`}
       placeholder="Navbar Placeholder"
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}

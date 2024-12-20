@@ -7,24 +7,28 @@ import Footer from '../../components/footer';
 import Image from 'next/image';
 import supabase from '../../../supabase';
 
+interface FormData {
+  companyName: string;
+  primaryContact: string;
+  email: string;
+  phone: string;
+  website: string;
+  address: string;
+  sponsorshipLevels: string[];
+  goals: string[];
+  opportunities: string[];
+  additionalInfo: string;
+  companyDescription: string;
+  sponsoredBefore: string;
+  sponsorshipDetails: string;
+}
+
 export default function Buyer() {
   const router = useRouter();
 
-  const [formData, setFormData] = useState<{
-    companyName: string;
-    primaryContact: string;
-    email: string;
-    phone: string;
-    website: string;
-    address: string;
-    sponsorshipLevels: string[];
-    goals: string[];
-    opportunities: string[];
-    additionalInfo: string;
-    companyDescription: string;
-    sponsoredBefore: string;
-    sponsorshipDetails: string;
-  }>({
+  const [showPopup, setShowPopup] = useState(false);
+
+  const [formData, setFormData] = useState<FormData>({
     companyName: '',
     primaryContact: '',
     email: '',
@@ -40,19 +44,17 @@ export default function Buyer() {
     sponsorshipDetails: '',
   });
 
-  const [showPopup, setShowPopup] = useState(false);
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value, type } = e.target;
-    if (type === 'checkbox' && e.target instanceof HTMLInputElement) {
-      const { checked } = e.target;
+    if (type === 'checkbox') {
+      const checked = (e.target as HTMLInputElement).checked;
       setFormData((prevData) => ({
         ...prevData,
         [name]: checked
-          ? [...(prevData[name as keyof typeof formData] as string[]), value]
-          : (prevData[name as keyof typeof formData] as string[]).filter((v) => v !== value),
+          ? [...(prevData[name as keyof FormData] as string[]), value]
+          : (prevData[name as keyof FormData] as string[]).filter((v: string) => v !== value),
       }));
     } else {
       setFormData({ ...formData, [name]: value });
@@ -96,22 +98,22 @@ export default function Buyer() {
     }
   };
 
-  return  (
+  return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <Navbar />
-      <div className="flex flex-col lg:flex-row items-stretch">
-        
+      {/* Padding to ensure the content isn't hidden behind the navbar */}
+      <div className="flex flex-col lg:flex-row items-stretch pt-24">
         {/* Left Image Section */}
         <div className="lg:w-1/2 h-screen relative">
           <Image
             src="/image/boots.png"
             alt="Boots display"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             className="lg:rounded-lg shadow-lg"
           />
         </div>
-        
+
         {/* Form Section */}
         <div className="flex-grow lg:w-1/2 py-12 px-8 lg:px-16 bg-white">
           <form className="max-w-lg mx-auto space-y-6" onSubmit={handleSubmit}>
