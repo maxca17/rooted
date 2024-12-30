@@ -42,6 +42,9 @@ export default function Waitlist() {
                 color="blue"
                 variant="filled"
                 onClick={handleVendorClick}
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
               >
                 EXHIBIT
               </Button>
@@ -49,6 +52,9 @@ export default function Waitlist() {
                 color="blue"
                 variant="filled"
                 onClick={handleIndividualClick}
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
               >
                 ATTEND
               </Button>
@@ -56,6 +62,9 @@ export default function Waitlist() {
                 color="blue"
                 variant="filled"
                 onClick={handleBuyerClick}
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
               >
                 BUYERS
               </Button>
