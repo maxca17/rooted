@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Navbar from '../../components/navbar';
-import Footer from '../../components/footer';
-import Image from 'next/image';
-import supabase from '../../../supabase';
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import Navbar from "../../components/navbar";
+import Footer from "../../components/footer";
+import Image from "next/image";
+import supabase from "../../../supabase";
 
 interface FormData {
   companyName: string;
@@ -25,36 +25,37 @@ interface FormData {
 
 export default function Buyer() {
   const router = useRouter();
-
   const [showPopup, setShowPopup] = useState(false);
 
   const [formData, setFormData] = useState<FormData>({
-    companyName: '',
-    primaryContact: '',
-    email: '',
-    phone: '',
-    website: '',
-    address: '',
+    companyName: "",
+    primaryContact: "",
+    email: "",
+    phone: "",
+    website: "",
+    address: "",
     sponsorshipLevels: [],
     goals: [],
     opportunities: [],
-    additionalInfo: '',
-    companyDescription: '',
-    sponsoredBefore: '',
-    sponsorshipDetails: '',
+    additionalInfo: "",
+    companyDescription: "",
+    sponsoredBefore: "",
+    sponsorshipDetails: "",
   });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value, type } = e.target;
-    if (type === 'checkbox') {
+    if (type === "checkbox") {
       const checked = (e.target as HTMLInputElement).checked;
       setFormData((prevData) => ({
         ...prevData,
         [name]: checked
           ? [...(prevData[name as keyof FormData] as string[]), value]
-          : (prevData[name as keyof FormData] as string[]).filter((v: string) => v !== value),
+          : (prevData[name as keyof FormData] as string[]).filter(
+              (v: string) => v !== value
+            ),
       }));
     } else {
       setFormData({ ...formData, [name]: value });
@@ -65,7 +66,7 @@ export default function Buyer() {
     e.preventDefault();
     try {
       const { data, error } = await supabase
-        .from('sponsorship_submissions')
+        .from("sponsorship_submissions")
         .insert([
           {
             company_name: formData.companyName,
@@ -79,29 +80,31 @@ export default function Buyer() {
             opportunities: formData.opportunities,
             additional_info: formData.additionalInfo,
             company_description: formData.companyDescription,
-            sponsored_before: formData.sponsoredBefore === 'Yes',
+            sponsored_before: formData.sponsoredBefore === "Yes",
             sponsorship_details: formData.sponsorshipDetails,
           },
         ]);
 
       if (error) {
-        console.error('Error inserting data:', error);
+        console.error("Error inserting data:", error);
       } else {
-        console.log('Data inserted successfully:', data);
+        console.log("Data inserted successfully:", data);
         setShowPopup(true);
         setTimeout(() => {
-          router.push('/');
+          router.push("/");
         }, 5000);
       }
     } catch (err) {
-      console.error('Error during submission:', err);
+      console.error("Error during submission:", err);
     }
   };
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
+      {/* Top Navbar */}
       <Navbar />
-      {/* Padding to ensure the content isn't hidden behind the navbar */}
+
+      {/* Main content area */}
       <div className="flex flex-col lg:flex-row items-stretch pt-24">
         {/* Left Image Section */}
         <div className="lg:w-1/2 h-screen relative">
@@ -109,7 +112,7 @@ export default function Buyer() {
             src="/image/boots.png"
             alt="Boots display"
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
             className="lg:rounded-lg shadow-lg"
           />
         </div>
@@ -118,8 +121,8 @@ export default function Buyer() {
         <div className="flex-grow lg:w-1/2 py-12 px-8 lg:px-16 bg-white">
           <form className="max-w-lg mx-auto space-y-6" onSubmit={handleSubmit}>
             <h2 className="text-3xl font-bold mb-6">Company Information</h2>
-
             <div className="grid grid-cols-1 gap-4">
+              {/* Company Name */}
               <div className="flex flex-col">
                 <label htmlFor="companyName" className="font-semibold">
                   Company Name:
@@ -133,6 +136,8 @@ export default function Buyer() {
                   className="border p-2 rounded"
                 />
               </div>
+
+              {/* Primary Contact */}
               <div className="flex flex-col">
                 <label htmlFor="primaryContact" className="font-semibold">
                   Primary Contact Name:
@@ -146,6 +151,8 @@ export default function Buyer() {
                   className="border p-2 rounded"
                 />
               </div>
+
+              {/* Email */}
               <div className="flex flex-col">
                 <label htmlFor="email" className="font-semibold">
                   Email Address:
@@ -159,6 +166,8 @@ export default function Buyer() {
                   className="border p-2 rounded"
                 />
               </div>
+
+              {/* Phone */}
               <div className="flex flex-col">
                 <label htmlFor="phone" className="font-semibold">
                   Phone Number:
@@ -172,6 +181,8 @@ export default function Buyer() {
                   className="border p-2 rounded"
                 />
               </div>
+
+              {/* Website */}
               <div className="flex flex-col">
                 <label htmlFor="website" className="font-semibold">
                   Company Website:
@@ -185,6 +196,8 @@ export default function Buyer() {
                   className="border p-2 rounded"
                 />
               </div>
+
+              {/* Address */}
               <div className="flex flex-col">
                 <label htmlFor="address" className="font-semibold">
                   Company Address:
@@ -198,8 +211,13 @@ export default function Buyer() {
                   className="border p-2 rounded"
                 />
               </div>
+
+              {/* Company Description */}
               <div className="flex flex-col">
-                <label htmlFor="companyDescription" className="font-semibold">
+                <label
+                  htmlFor="companyDescription"
+                  className="font-semibold"
+                >
                   Briefly describe your company and its connection to the Texas CPG industry:
                 </label>
                 <textarea
@@ -214,6 +232,7 @@ export default function Buyer() {
 
             <h2 className="text-3xl font-bold my-6">Sponsorship Interest</h2>
 
+            {/* Sponsored Before */}
             <div className="flex flex-col">
               <h3 className="font-semibold mb-2">
                 Have you sponsored similar events before?
@@ -224,7 +243,7 @@ export default function Buyer() {
                     type="radio"
                     name="sponsoredBefore"
                     value="Yes"
-                    checked={formData.sponsoredBefore === 'Yes'}
+                    checked={formData.sponsoredBefore === "Yes"}
                     onChange={handleChange}
                     className="mr-2"
                   />
@@ -235,7 +254,7 @@ export default function Buyer() {
                     type="radio"
                     name="sponsoredBefore"
                     value="No"
-                    checked={formData.sponsoredBefore === 'No'}
+                    checked={formData.sponsoredBefore === "No"}
                     onChange={handleChange}
                     className="mr-2"
                   />
@@ -244,9 +263,13 @@ export default function Buyer() {
               </div>
             </div>
 
-            {formData.sponsoredBefore === 'Yes' && (
+            {/* Sponsorship Details */}
+            {formData.sponsoredBefore === "Yes" && (
               <div className="flex flex-col">
-                <label htmlFor="sponsorshipDetails" className="font-semibold">
+                <label
+                  htmlFor="sponsorshipDetails"
+                  className="font-semibold"
+                >
                   If yes, please provide details:
                 </label>
                 <textarea
@@ -259,16 +282,17 @@ export default function Buyer() {
               </div>
             )}
 
+            {/* Primary Goals */}
             <div className="flex flex-col">
               <h3 className="font-semibold mb-2">
                 What are your primary goals for sponsoring Rooted Expo?
               </h3>
               {[
-                'Brand Visibility',
-                'Lead Generation',
-                'Networking with Industry Leaders',
-                'Supporting Local Businesses',
-                'Product Launch',
+                "Brand Visibility",
+                "Lead Generation",
+                "Networking with Industry Leaders",
+                "Supporting Local Businesses",
+                "Product Launch",
               ].map((goal) => (
                 <label key={goal} className="flex items-center">
                   <input
@@ -284,18 +308,19 @@ export default function Buyer() {
               ))}
             </div>
 
+            {/* Opportunities */}
             <div className="flex flex-col">
               <h3 className="font-semibold mb-2">
                 Which of the following opportunities would you be interested in?
               </h3>
               {[
-                'Speaking Engagement',
-                'Booth Space',
-                'Product Sampling',
-                'Digital Advertising',
-                'Event Program Listing',
-                'VIP Event Access',
-                'Other',
+                "Speaking Engagement",
+                "Booth Space",
+                "Product Sampling",
+                "Digital Advertising",
+                "Event Program Listing",
+                "VIP Event Access",
+                "Other",
               ].map((opportunity) => (
                 <label key={opportunity} className="flex items-center">
                   <input
@@ -311,6 +336,7 @@ export default function Buyer() {
               ))}
             </div>
 
+            {/* Additional Info */}
             <div className="flex flex-col">
               <label htmlFor="additionalInfo" className="font-semibold">
                 Please provide any additional information or special requests:
@@ -324,6 +350,7 @@ export default function Buyer() {
               />
             </div>
 
+            {/* Submit */}
             <button
               type="submit"
               className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
@@ -334,14 +361,18 @@ export default function Buyer() {
         </div>
       </div>
 
+      {/* Popup */}
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-4 rounded shadow-lg">
-            <p>Thank you for your submission! Redirecting you to the homepage...</p>
+            <p>
+              Thank you for your submission! Redirecting you to the homepage...
+            </p>
           </div>
         </div>
       )}
 
+      {/* Bottom Footer */}
       <Footer />
     </div>
   );
