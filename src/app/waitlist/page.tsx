@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
-import { Button, Typography } from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
 
 export default function Waitlist() {
   const router = useRouter();
@@ -30,30 +30,18 @@ export default function Waitlist() {
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text and Buttons Section */}
           <div>
-            <Typography
-              variant="h3"
-              className="font-bold mb-4 text-gray-900"
-              placeholder="Header Placeholder"
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
-            >
+            <h2 className="text-3xl font-bold mb-4 text-gray-900">
               GETTING STARTED
-            </Typography>
-            <Typography
-              variant="lead"
-              className="mb-8 text-gray-700"
-              placeholder="Lead Placeholder"
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
-            >
+            </h2>
+            <p className="mb-8 text-gray-700">
               How do you plan on participating in Rooted Expo?
-            </Typography>
+            </p>
             <div className="flex flex-col space-y-4 max-w-sm">
               <Button
                 color="blue"
                 variant="filled"
                 onClick={handleVendorClick}
-                placeholder="Exhibit Button"
+                placeholder=""
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
@@ -63,7 +51,7 @@ export default function Waitlist() {
                 color="blue"
                 variant="filled"
                 onClick={handleIndividualClick}
-                placeholder="Attend Button"
+                placeholder=""
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
@@ -73,7 +61,7 @@ export default function Waitlist() {
                 color="blue"
                 variant="filled"
                 onClick={handleBuyerClick}
-                placeholder="Buyers Button"
+                placeholder=""
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
