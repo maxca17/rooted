@@ -1,25 +1,26 @@
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import Navbar from '../../components/navbar';
-import Footer from '../../components/footer';
+import React from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Button } from "@material-tailwind/react";
+// Keep or remove Navbar/Footer if you like
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 export default function Waitlist() {
   const router = useRouter();
 
-  const handleIndividualClick = () => {
-    router.push('/indform');
+  const handleVendorClick = () => {
+    router.push("/companybrandinfo");
   };
 
-  const handleVendorClick = () => {
-    router.push('/companybrandinfo');
+  const handleIndividualClick = () => {
+    router.push("/indform");
   };
 
   const handleBuyerClick = () => {
-    router.push('/buyers');
+    router.push("/buyers");
   };
 
   return (
@@ -28,7 +29,7 @@ export default function Waitlist() {
 
       <div className="flex-grow flex flex-col justify-center px-4 py-12 lg:py-20 lg:px-8">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Text and Buttons Section */}
+          {/* Left side (Text & Buttons) */}
           <div>
             <h2 className="text-3xl font-bold mb-4 text-gray-900">
               GETTING STARTED
@@ -41,9 +42,6 @@ export default function Waitlist() {
                 color="blue"
                 variant="filled"
                 onClick={handleVendorClick}
-                placeholder=""
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
               >
                 EXHIBIT
               </Button>
@@ -51,9 +49,6 @@ export default function Waitlist() {
                 color="blue"
                 variant="filled"
                 onClick={handleIndividualClick}
-                placeholder=""
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
               >
                 ATTEND
               </Button>
@@ -61,16 +56,12 @@ export default function Waitlist() {
                 color="blue"
                 variant="filled"
                 onClick={handleBuyerClick}
-                placeholder=""
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
               >
                 BUYERS
               </Button>
             </div>
           </div>
-
-          {/* Image Section */}
+          {/* Right side (Image) */}
           <div className="flex justify-center">
             <div className="relative w-full max-w-md">
               <Image
