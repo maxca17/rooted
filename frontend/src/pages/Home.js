@@ -28,7 +28,7 @@ import austin from "../images/austin.png";
 import michelle from "../images/michelle.png";
 
 import Footer from "./Footer";
-
+import Faq from "./faq";
 
 
 
@@ -332,16 +332,6 @@ function EventContent() {
           </div>
         </div>
       </div>
-    </section>
-  );
-}
-
-// FAQ (Placeholder)
-function Faq() {
-  return (
-    <section className="faq-section">
-      <h2>Frequently Asked Questions</h2>
-      <p>FAQ content coming soon...</p>
     </section>
   );
 }

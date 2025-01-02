@@ -1,0 +1,75 @@
+/* FAQ Section Wrapper */
+.faq-section {
+    padding: 2rem 1rem;
+    background-color: #fafafa;
+  }
+  
+  /* Container to center content nicely */
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  /* Section Title */
+  .faq-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  /* Intro Paragraph */
+  .faq-intro {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* List containing all FAQ items */
+  .faq-list {
+    text-align: left; /* We want our questions to align left */
+  }
+  
+  /* Individual FAQ item container */
+  .faq-item {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  /* Header (question) style */
+  .faq-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    padding: 0;
+    color: #333;
+  }
+  
+  /* Plus/Minus icon on the right */
+  .faq-item-icon {
+    margin-left: 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  /* Body (answer) style */
+  .faq-item-body {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.4;
+    transition: all 0.3s ease-in-out;
+  }
+  

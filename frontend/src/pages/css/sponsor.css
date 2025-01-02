@@ -1,0 +1,182 @@
+/* Root container */
+.sponsor-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+  }
+  
+  /* MAIN CONTENT WRAPPER */
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin-top: 80px; /* So content isn't hidden behind a fixed navbar */
+  }
+  
+  @media (min-width: 992px) {
+    .main-content {
+      flex-direction: row;
+    }
+  }
+  
+  /* LEFT IMAGE SECTION */
+  .image-section {
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  @media (min-width: 992px) {
+    .image-section {
+      max-height: none;
+      margin-bottom: 0;
+      margin-right: 1rem;
+      width: 50%;
+    }
+  }
+  
+  .side-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* FORM SECTION */
+  .sponsor-form {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  
+  @media (min-width: 992px) {
+    .sponsor-form {
+      width: 50%;
+    }
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  /* GRID FOR FIELDS */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .form-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .form-group,
+  .form-group-large {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group-large {
+    grid-column: 1 / -1; /* Span entire width in the grid */
+  }
+  
+  /* LABEL + INPUT/TEXTAREA */
+  .form-group label,
+  .form-group-large label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  .form-group input,
+  .form-group-large textarea {
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  .form-group input:focus,
+  .form-group-large textarea:focus {
+    border-color: #007bff;
+  }
+  
+  .form-group-large textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+  
+  /* RADIO GROUP */
+  .form-radio-group {
+    margin: 1rem 0;
+  }
+  
+  .form-radio-group p {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .form-radio-group label {
+    margin-right: 1rem;
+    font-weight: normal;
+    color: #333;
+  }
+  
+  /* SUBMIT BUTTON */
+  .submit-button {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* POPUP OVERLAY */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+  }
+  
+  .popup-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .popup-message {
+    font-size: 1rem;
+    color: #333;
+  }
+  
