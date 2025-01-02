@@ -7,6 +7,7 @@ import Sponsor from './pages/Sponsor';
 import Waitlist from './pages/Waitlist';
 import CompanyBrandInfo from './pages/CompanyBrandInfo';
 import IndividualForm from './pages/IndividualForm';
+import Buyers from './pages/Buyers';
 
 function AppRoutes() {
   return (
@@ -17,6 +18,7 @@ function AppRoutes() {
       <Route path="/waitlist" element={<Waitlist />} />
       <Route path="/companybrandinfo" element={<CompanyBrandInfo />} />
       <Route path="/indform" element={<IndividualForm />} />
+      <Route path="/buyers" element={<Buyers />} />
     </Routes>
 
   );
