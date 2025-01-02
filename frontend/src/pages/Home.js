@@ -1,5 +1,13 @@
 import React from "react";
+import Slider from "react-slick"; // Import react-slick
+import "slick-carousel/slick/slick.css"; // Slick CSS
+import "slick-carousel/slick/slick-theme.css"; // Slick theme CSS
+
+// Import your main CSS after slick's CSS
 import "./home.css";
+
+// Images (adjust paths as needed)
+import Navbar from "./Navbar";
 import jumpstartcpg from "../images/logos/jumpstartcpg.png";
 import dfwcpg from "../images/logos/dfwcpg.png";
 import naturally from "../images/logos/naturally.png";
@@ -7,36 +15,25 @@ import polsinelli from "../images/logos/Polsinelli.png";
 import sku from "../images/logos/sku.png";
 import sw from "../images/logos/sw.png";
 
-// You can import your images like this, or just use direct `src="..."` paths
-// import rootedLogo from "./images/rootedlogo1.png";
-// import eventImg from "./images/event.jpeg";
+// Carousel images
+import katrina from "../images/katr.png";
+import rick from "../images/rick.png";
+import jeff from "../images/jeff.png";
+import marc from "../images/marc.png";
+import derrick from "../images/derrick.png";
+import kat from "../images/kat.png";
+import richard from "../images/richard.png";
+import felipe from "../images/f.png";
+import austin from "../images/austin.png";
+import michelle from "../images/michelle.png";
 
-function Navbar() {
-  return (
-    <nav className="navbar">
-      <div className="navbar__content">
-        {/* LOGO */}
-        <img
-          src="/images/rootedlogo1.png"
-          alt="Rooted Expo Logo"
-          className="navbar__logo"
-          onClick={() => (window.location.href = "/")}
-        />
+import Footer from "./Footer";
 
-        {/* NAV MENU (Empty in your example, so we keep it minimal) */}
-        <ul className="navbar__menu">
-          {/* Add <li> items here if needed */}
-        </ul>
 
-        {/* SPONSOR BUTTON */}
-        <a href="/sponsor" className="navbar__sponsor-btn">
-          Become a Sponsor
-        </a>
-      </div>
-    </nav>
-  );
-}
 
+
+
+// HERO SECTION
 function Hero() {
   return (
     <section className="hero-section">
@@ -56,6 +53,7 @@ function Hero() {
   );
 }
 
+// SPONSORS
 function SponsoredBy() {
   const sponsors = [
     { src: jumpstartcpg, alt: "Jumpstart CPG" },
@@ -72,12 +70,7 @@ function SponsoredBy() {
       <div className="sponsored-logos">
         {sponsors.map((logo, index) => (
           <div className="sponsor-logo-container" key={index}>
-            <img
-              src={logo.src} // Accessing the `src` property
-              alt={logo.alt}
-              className="sponsor-img"
-              loading="lazy"
-            />
+            <img src={logo.src} alt={logo.alt} className="sponsor-img" />
           </div>
         ))}
       </div>
@@ -85,8 +78,7 @@ function SponsoredBy() {
   );
 }
 
-
-
+// ABOUT EVENT
 function AboutEvent() {
   const eventInfo = [
     {
@@ -133,6 +125,7 @@ function AboutEvent() {
   );
 }
 
+// OUR STATS
 function OurStats() {
   const stats = [
     { count: "320+", title: "Participants" },
@@ -164,38 +157,39 @@ function OurStats() {
   );
 }
 
+// EVENT CONTENT (Carousel + Team)
 function EventContent() {
-  // "Carousel" content
+  // Carousel content
   const carouselContent = [
     {
       des: "While technology has made the world smaller... Rooted Expo brings diverse flavors...",
       name: "Jeff Richards",
       position: "CEO | Founder of Mooala",
-      img: "/images/jeffr.png",
+      img: jeff,
     },
     {
       des: "Texas is filled with some of the proudest people in the world...",
       name: "Austin Patry",
       position: "Founder of Realsy",
-      img: "/images/austin.png",
+      img: austin,
     },
     {
       des: "Finally, a time and place for Texas CPG brands to display their wares in Texas...",
       name: "Richard G. Riccardi",
       position: "Co-Founder of DFW CPG | Blogger",
-      img: "/images/richard.png",
+      img: richard,
     },
     {
       des: "Texas stands out with its bold entrepreneurial spirit...",
       name: "Rick Jordan",
       position: "Co-Founder of DFW CPG | Shareholder at Polsinelli",
-      img: "/images/rickjordan.png",
+      img: rick,
     },
     {
       des: "This is a fantastic chance to showcase Texas brands...",
       name: "Michelle Breyer",
       position: "Chief Marketing Officer at SKU",
-      img: "/images/michelle.png",
+      img: michelle,
     },
   ];
 
@@ -204,25 +198,25 @@ function EventContent() {
     {
       name: "Derek Ramos",
       role: "Founder & Chief Organizer of Rooted Expo",
-      image: "/images/derrick.png",
+      image: derrick,
       link: "https://tinyurl.com/2zaxuja3",
     },
     {
       name: "Kat Weaver",
       role: "Founder of Power to Pitch & Event Co-Chair of DFW CPG",
-      image: "/images/kat.png",
+      image: kat,
       link: "https://tinyurl.com/9kfde4cs",
     },
     {
       name: "Richard G. Riccardi",
       role: "Writer, and CPG Advocate & Co-Founder of DFW CPG",
-      image: "/images/richard.png",
+      image: richard,
       link: "https://tinyurl.com/mrys9736",
     },
     {
       name: "Felipe Vega",
       role: "Founder of IronClad & Board President of Naturally Austin",
-      image: "/images/f.png",
+      image: felipe,
       link: "https://tinyurl.com/39jf9zja",
     },
   ];
@@ -232,44 +226,57 @@ function EventContent() {
     {
       name: "Katrina Tolentino",
       role: "Executive Director of Naturally Network",
-      image: "/images/katr.png",
+      image: katrina,
       link: "https://www.linkedin.com/in/katrinatolentino",
     },
     {
       name: "Rick Jordan",
       role: "Managing Partner of Polsinelli & Co-Founder of DFW CPG",
-      image: "/images/rick.png",
+      image: rick,
       link: "https://www.linkedin.com/in/rick-jordan-81b38316",
     },
     {
       name: "Jeff Richards",
       role: "Founder of Mooala",
-      image: "/images/jeff.png",
+      image: jeff,
       link: "https://www.linkedin.com/in/jeffreyrichards",
     },
     {
       name: "Marc Nathan",
       role: "Professional 'Super Connector' for Tech & CPG companies",
-      image: "/images/marc.png",
+      image: marc,
       link: "https://www.linkedin.com/in/marc1919/",
     },
   ];
 
+  // Settings for react-slick
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    arrows: false,
+  };
+
   return (
     <section className="event-content-section">
-      {/* "Carousel" style list */}
+      {/* Carousel */}
       <div className="event-carousel">
-        {carouselContent.map((item, idx) => (
-          <div className="carousel-item" key={idx}>
-            <img src={item.img} alt={item.name} className="carousel-img" />
-            <p className="carousel-text">
-              <i className="fas fa-quote-left quote-icon" />
-              {item.des}
-            </p>
-            <h5>{item.name}</h5>
-            <p className="carousel-position">{item.position}</p>
-          </div>
-        ))}
+        <Slider {...sliderSettings}>
+          {carouselContent.map((item, idx) => (
+            <div className="carousel-item" key={idx}>
+              <img src={item.img} alt={item.name} className="carousel-img" />
+              <p className="carousel-text">
+                <i className="fas fa-quote-left quote-icon" />
+                {item.des}
+              </p>
+              <h5 className="carousel-name">{item.name}</h5>
+              <p className="carousel-position">{item.position}</p>
+            </div>
+          ))}
+        </Slider>
       </div>
 
       {/* Team Section */}
@@ -329,7 +336,7 @@ function EventContent() {
   );
 }
 
-// Placeholder Faq (since code not provided)
+// FAQ (Placeholder)
 function Faq() {
   return (
     <section className="faq-section">
@@ -339,60 +346,10 @@ function Faq() {
   );
 }
 
-function Footer() {
-  const CURRENT_YEAR = new Date().getFullYear();
-  const links = ["Company", "About Us", "Team", "Products", "Blog"];
 
-  return (
-    <footer className="footer-section">
-      <div className="footer-top">
-        <h2>Rooted Expo</h2>
-        <ul className="footer-links">
-          {links.map((link, idx) => (
-            <li key={idx}>
-              <a href="/#">{link}</a>
-            </li>
-          ))}
-        </ul>
-        <div className="footer-icons">
-          {/* Make sure FontAwesome is loaded in index.html or elsewhere */}
-          <a
-            href="https://x.com/rootedexpo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="fa-brands fa-twitter" />
-          </a>
-          <a
-            href="https://www.youtube.com/@RootedExpo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="fa-brands fa-youtube" />
-          </a>
-          <a
-            href="https://www.instagram.com/rootedexpo/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="fa-brands fa-instagram" />
-          </a>
-          <a
-            href="https://www.linkedin.com/company/rootedexpo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="fa-brands fa-linkedin" />
-          </a>
-        </div>
-      </div>
-      <p className="footer-copyright">
-        &copy; {CURRENT_YEAR} Rooted Expo. All rights reserved.
-      </p>
-    </footer>
-  );
-}
 
+
+// FINAL HOME COMPONENT
 export default function Home() {
   return (
     <div className="home-container">
