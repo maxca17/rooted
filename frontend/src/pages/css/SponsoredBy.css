@@ -1,0 +1,27 @@
+
+/* -----------------------------------------
+   SPONSORED SECTION
+------------------------------------------ */
+.sponsored-section {
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+  
+.sponsored-title {
+    font-size: 1.2rem;
+    margin-bottom: 24px;
+}
+  
+.sponsored-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+  
+.sponsor-img {
+    width: 150px; /* Set a fixed width for uniformity */
+    height: 150px; /* Set a fixed height for uniformity */
+    object-fit: contain; /* Maintain aspect ratio */
+}

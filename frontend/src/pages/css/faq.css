@@ -73,3 +73,11 @@
     transition: all 0.3s ease-in-out;
   }
   
+
+/* -----------------------------------------
+   FAQ SECTION
+------------------------------------------ */
+.faq-section {
+  padding: 60px 20px;
+  text-align: center;
+}
