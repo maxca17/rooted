@@ -12,55 +12,9 @@ import Footer from "./Footer";
 import Faq from "./faq";
 import Hero from "./Hero";
 import EventContent from "./EventContent";
+import AboutEvent from "./AboutEvent";
 
 
-
-// ABOUT EVENT
-function AboutEvent() {
-  const eventInfo = [
-    {
-      title: "Big Ideas, Bold Pitches!",
-      description:
-        "Watch emerging brands showcase their groundbreaking innovations in front of industry leaders. Discover the next wave of CPG success stories live on stage!",
-      subTitle: "Pitch Slam",
-    },
-    {
-      title: "Hands-On Strategies!",
-      description:
-        "Join interactive sessions tailored for CPG professionals and gain actionable insights you can implement right away to drive your brand forward.",
-      subTitle: "Workshops",
-    },
-    {
-      title: "Connect & Grow!",
-      description:
-        "Network with CPG founders, industry leaders, and key decision-makers. Build lasting relationships within the community that will help elevate your brand and business!",
-      subTitle: "Community",
-    },
-  ];
-
-  return (
-    <section className="about-event-section">
-      <h2>Why Attend?</h2>
-      <p className="about-event-description">
-        Join us in the heart of Texas’s thriving CPG scene at Rooted Expo! Connect
-        with top brands, forge valuable relationships with industry leaders, meet
-        directly with buyers and angel investors, and build a network that fuels
-        success. Engage with innovative products and ideas that push boundaries
-        and drive growth across the CPG sector...
-      </p>
-
-      <div className="about-card-grid">
-        {eventInfo.map((item, idx) => (
-          <div className="about-card" key={idx}>
-            <h3>{item.subTitle}</h3>
-            <h4>{item.title}</h4>
-            <p>{item.description}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
 
 // OUR STATS
 function OurStats() {

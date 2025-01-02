@@ -1,47 +1,133 @@
 /* -----------------------------------------
-   NAVBAR
+   NAVBAR (base styles)
 ------------------------------------------ */
 .navbar {
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 16px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-  }
-  
-  .navbar__content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .navbar__logo {
-    cursor: pointer;
-    height: 60px;
-  }
-  
-  .navbar__menu {
-    list-style: none;
-    display: flex;
-    gap: 16px;
-  }
-  
-  .navbar__menu li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .navbar__sponsor-btn {
-    text-decoration: none;
-    background: #fff;
-    color: #333;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-weight: bold;
-  }
-  
+  width: 100%;
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  transition: background-color 0.3s ease; /* Smooth transition */
+  /* Keep other shared styles like height, display, etc. */
+}
+
+.navbar__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__logo {
+  cursor: pointer;
+  height: 80px; /* Larger logo */
+}
+
+.navbar__menu {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+}
+
+.navbar__menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar__sponsor-btn {
+  text-decoration: none;
+  background: #fff;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* -----------------------------------------
+   NAVBAR - root vs. non-root behavior
+------------------------------------------ */
+/* 
+   1) On root page (body.home-page), start with a transparent background.
+   2) Once scrolled OR if on any non-root page, we use the black overlay.
+*/
+
+/* On the root page at the top (no scroll yet) */
+.home-page .navbar {
+  background-color: transparent; 
+  position: absolute;  /* So it overlays the hero section */
+}
+
+/* As soon as the user scrolls on the root page, add a .scrolled class in JS */
+.home-page .navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+}
+
+/* On any page that is NOT the root, always black overlay */
+:not(.home-page) .navbar {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+}
+/* -----------------------------------------
+   NAVBAR (Shared)
+------------------------------------------ */
+.navbar {
+  width: 100%;
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+
+.navbar__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__logo {
+  cursor: pointer;
+  height: 80px; /* Larger logo */
+}
+
+.navbar__menu {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+}
+
+.navbar__menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar__sponsor-btn {
+  text-decoration: none;
+  background: #fff;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* -----------------------------------------
+   NAVBAR - Transparency vs. Black
+------------------------------------------ */
+
+/* "home-top" is used on root page when not scrolled */
+.navbar.home-top {
+  background-color: transparent; /* see through at top of / */
+}
+
+/* "scrolled" is used once the user scrolls OR is on non-root page */
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.7); /* black overlay */
+}
