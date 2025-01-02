@@ -12,52 +12,5 @@
   color: #333;
 }
 
-/* -----------------------------------------
-   OUR STATS SECTION
------------------------------------------- */
-.our-stats-section {
-  padding: 60px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.our-stats-text h6 {
-  color: orange;
-  font-size: 1rem;
-  margin-bottom: 8px;
-}
-
-.our-stats-text h2 {
-  font-size: 2rem;
-  margin-bottom: 16px;
-}
-
-.our-stats-text p {
-  max-width: 600px;
-  line-height: 1.5;
-  margin-bottom: 30px;
-}
-
-.our-stats-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-
-.stat-card {
-  flex: 1;
-  min-width: 120px;
-  text-align: center;
-}
-
-.stat-card h3 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 8px;
-}
-
-.stat-card p {
-  color: #666;
-}
 
 

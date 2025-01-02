@@ -1,149 +1,183 @@
-
-
 /* -----------------------------------------
    EVENT CONTENT SECTION (CAROUSEL + TEAM)
 ------------------------------------------ */
 .event-content-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-top: 40px;
-    background: #fff;
-  }
-  
-  /* Carousel wrapper */
-  .event-carousel {
-    max-width: 600px;
-    margin: 0 auto 60px;
-  }
-  
-  /* Slick Carousel Dots (Horizontal) */
-  .slick-dots {
-    bottom: -30px; /* Adjust to position dots below slides */
-  }
-  .slick-dots li button:before {
-    font-size: 12px;
-    color: #333;
-  }
-  .slick-dots li.slick-active button:before {
-    color: #999;
-  }
-  
-  /* Individual carousel item */
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  background-color: #fff;
+}
+
+/* Carousel wrapper */
+.event-carousel {
+  position: relative;
+  max-width: 900px; /* widened for more horizontal space */
+  margin: 0 auto 60px;
+}
+
+/* Slick Carousel Dots (Horizontal) */
+.slick-dots {
+  bottom: -30px !important; /* push dots below the slides */
+  text-align: center;
+}
+.slick-dots li button:before {
+  font-size: 14px;
+  color: #bbb; /* lighter color for unselected dots */
+}
+.slick-dots li.slick-active button:before {
+  color: #666; /* darker color for active dot */
+}
+
+/* Individual carousel slide (card style) */
+.carousel-item {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  padding: 40px 20px;
+  margin: 0 20px;
+  outline: none; /* remove focus outline from slides */
+}
+
+/* Larger circular images for speakers/testimonials */
+.carousel-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  object-fit: cover;
+  border: 3px solid #fff; /* add a subtle border around the image */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Testimonial text */
+.carousel-text {
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  max-width: 600px;
+  margin: 0 auto 1rem;
+}
+.quote-icon {
+  margin-right: 0.5rem;
+  color: #999;
+}
+
+/* Name and position text */
+.carousel-name {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0.75rem 0 0.25rem;
+}
+.carousel-position {
+  font-size: 0.95rem;
+  color: #777;
+}
+
+/* Team Section */
+.team-section {
+  text-align: center;
+}
+.team-section-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.team-section-underline {
+  width: 100px;
+  height: 4px;
+  background-color: #333;
+  margin: 0.5rem auto 2.5rem;
+}
+
+/* Sub-team (Board/Advisory) */
+.sub-team {
+  margin-bottom: 3rem;
+}
+.sub-team h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Grid layout for members */
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.75rem;
+  justify-items: center;
+}
+
+/* Individual member card */
+.member-card {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.member-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 12px;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+.member-card h4 {
+  font-size: 1.05rem;
+  color: #333;
+  margin: 0.5rem 0 0.25rem;
+}
+.member-card p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* Social button (LinkedIn icon) */
+.social-btn {
+  margin-top: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #0077b5;
+  transition: color 0.2s ease;
+}
+.social-btn:hover {
+  color: #005684;
+}
+
+/* -----------------------------------------
+   MEDIA QUERIES (optional tweaks)
+------------------------------------------ */
+@media screen and (max-width: 768px) {
   .carousel-item {
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1rem;
-    outline: none; /* Remove focus outline */
+    margin: 0 10px;
+    padding: 30px 15px;
   }
-  
+
   .carousel-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-    object-fit: cover;
-  }
-  
-  .carousel-text {
-    font-style: italic;
-    margin-bottom: 0.5rem;
-    color: #444;
-    position: relative;
-    max-width: 500px;
-    margin: 0 auto 0.5rem;
-  }
-  
-  .quote-icon {
-    margin-right: 0.5rem;
-    color: #999;
-  }
-  
-  .carousel-name {
-    margin: 0.5rem 0 0;
-    font-weight: 600;
-  }
-  
-  .carousel-position {
-    font-size: 0.9rem;
-    color: #666;
-  }
-  
-  /* Team Section */
-  .team-section {
-    text-align: center;
-  }
-  
-  .team-section-title {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .team-section-underline {
-    width: 100px;
-    height: 4px;
-    background-color: #333;
-    margin: 0.5rem auto 2rem;
-  }
-  
-  /* Sub-team (Board/Advisory) */
-  .sub-team {
-    margin-bottom: 2rem;
-  }
-  
-  .sub-team h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .members-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    justify-items: center;
-  }
-  
-  /* Individual member card */
-  .member-card {
-    background: #f2f2f2;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    width: 220px;
-  }
-  
-  .member-img {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto 12px;
+    margin-bottom: 1rem;
   }
-  
-  .member-card h4 {
-    margin: 0.5rem 0 0.25rem;
+
+  .carousel-text {
+    font-size: 1rem;
   }
-  
-  .member-card p {
-    margin: 0 0 0.75rem;
-    color: #666;
-    font-size: 0.95rem;
+
+  .carousel-name {
+    font-size: 1rem;
   }
-  
-  .social-btn {
-    margin-top: auto;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: #0077b5;
-  }
-  .social-btn:hover {
-    color: #005684;
-  }
-  
+}
