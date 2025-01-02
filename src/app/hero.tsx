@@ -6,7 +6,7 @@ import { PlayIcon } from "@heroicons/react/24/solid";
 function Hero() {
   return (
     <div className="relative min-h-screen w-full bg-[url('/image/event.jpeg')] bg-cover bg-no-repeat sm:mt-16 md:mt-0">
-      {/* Only apply margin on small screens and remove it on medium and larger screens */}
+      {/* Background image is sourced from the '/image/event.jpeg' path */}
       <div className="absolute inset-0 h-full w-full bg-gray-900/60" />
       <div className="grid min-h-screen px-8">
         <div className="container relative z-10 my-auto mx-auto grid place-items-center text-center">
