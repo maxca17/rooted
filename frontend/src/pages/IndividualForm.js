@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+// Adjust these imports to match your actual project structure:
 import Navbar from "../pages/Navbar";
 import Footer from "../pages/Footer";
 import supabase from "../supabase";
+
+// Import the new CSS below:
 import "../pages/css/IndividualForm.css";
+
+// Import your image:
+import man from "../images/man.jpeg";
 
 export default function IndividualForm() {
   const navigate = useNavigate();
@@ -77,14 +84,10 @@ export default function IndividualForm() {
       <Navbar />
 
       <div className="main-section">
-        {/* Left Image Section - visible only for step 1 */}
+        {/* Left Image Section - visible only in step 1 */}
         {formStep === 1 && (
           <div className="left-image-section">
-            <img
-              src="/image/boots.png"
-              alt="Windmill"
-              className="left-image"
-            />
+            <img src={man} alt="Speaker at Rooted Expo" className="left-image" />
           </div>
         )}
 
@@ -106,6 +109,7 @@ export default function IndividualForm() {
                     value={formData.name}
                     onChange={handleChange}
                     className="input-field"
+                    required
                   />
                 </div>
                 <div className="input-group">
@@ -119,6 +123,7 @@ export default function IndividualForm() {
                     value={formData.email}
                     onChange={handleChange}
                     className="input-field"
+                    required
                   />
                 </div>
                 <div className="input-group">
@@ -177,7 +182,9 @@ export default function IndividualForm() {
               </div>
 
               <div className="checkbox-group">
-                <h3 className="group-heading">How did you hear about the Rooted Expo?</h3>
+                <h3 className="group-heading">
+                  How did you hear about the Rooted Expo?
+                </h3>
                 {["Social Media", "Friend/Colleague", "Website", "Other"].map(
                   (hearAbout) => (
                     <label key={hearAbout} className="checkbox-option">
@@ -221,7 +228,6 @@ export default function IndividualForm() {
         </div>
       )}
 
-      {/* Footer after main content; not fixed to avoid overlap */}
       <div className="footer-container">
         <Footer />
       </div>

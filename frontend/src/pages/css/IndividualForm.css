@@ -1,186 +1,195 @@
-/* The main container for the entire page */
+/*************************************
+ * IndividualForm.css
+ *************************************/
+
+/* 1) Container for entire page */
 .individual-form-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f2f2f2; /* light background */
-    position: relative;
-  }
-  
-  /* This wraps the image (step 1) and the form side by side on larger screens */
-  .main-section {
-    display: flex;
-    flex-wrap: wrap;       /* Let it wrap on smaller screens */
-    margin-bottom: 6rem;   /* Space before footer so it won't overlap */
-    padding-top: 6rem;     /* Extra top padding if you have a fixed navbar */
-  }
-  
-  /* LEFT IMAGE SECTION (visible only for step 1) */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+  position: relative;
+}
+
+/* 2) The main section wraps the image (step 1) + form.
+   On large screens, they go side by side.
+   On small screens, they stack. */
+.main-section {
+  display: flex;
+  flex-wrap: wrap;     /* allows stacking on smaller screens */
+  margin-bottom: 6rem; /* space above the footer so it won't overlap */
+  padding-top: 6rem;   /* adjust if you have a fixed navbar so content isn’t hidden */
+}
+
+/* 3) Left Image Section (shown only on step 1) */
+.left-image-section {
+  width: 100%;
+  max-height: 600px;
+  overflow: hidden;
+  margin-bottom: 1rem; /* so there's some space below in mobile view */
+}
+
+.left-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;  /* ensures it won’t distort */
+  display: block;
+}
+
+/* On large screens (≥992px), give the image half the width */
+@media (min-width: 992px) {
   .left-image-section {
-    width: 100%;
-    max-height: 600px;
-    overflow: hidden;
+    width: 50%;
+    margin-bottom: 0;
   }
-  
-  .left-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-  
-  /* On larger screens, place image and form side by side */
-  @media (min-width: 992px) {
-    .left-image-section {
-      width: 50%;
-    }
-  }
-  
-  /* FORM SECTION */
+}
+
+/* 4) Form Section */
+.form-section {
+  width: 100%;
+  background-color: #fff;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+/* On large screens (≥992px), form is half the width, side by side with image */
+@media (min-width: 992px) {
   .form-section {
-    width: 100%;
-    background-color: #fff;
-    padding: 2rem 1rem;
-    box-sizing: border-box;
-    overflow-y: auto;
+    width: 50%;
   }
-  
-  @media (min-width: 992px) {
-    .form-section {
-      width: 50%;
-    }
-  }
-  
-  /* FORM CONTENT */
-  .form-content {
-    max-width: 40rem;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .section-heading {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-  }
-  
-  /* GRID for step 1 inputs */
+}
+
+/* 5) Actual form content inside */
+.form-content {
+  max-width: 40rem; /* so it doesn't stretch too wide */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Headings */
+.section-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+/* 6) Input grid (for name/email/phone) */
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Two-column layout on medium screens (≥768px) */
+@media (min-width: 768px) {
   .input-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
   }
-  
-  /* 2-column layout on tablet and up */
-  @media (min-width: 768px) {
-    .input-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  
-  /* Label + input/textarea */
-  .input-group {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .label-text {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  
-  .input-field,
-  .textarea-field {
-    border: 1px solid #ccc;
-    padding: 0.5rem;
-    border-radius: 4px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    width: 100%;
-  }
-  
-  .textarea-field {
-    resize: vertical; /* allow vertical resizing */
-  }
-  
-  /* Checkbox/radio groups */
-  .checkbox-group {
-    margin: 1rem 0;
-  }
-  
-  .group-heading {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  
-  .checkbox-option {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
-  }
-  
-  .checkbox-option input {
-    margin-right: 0.5rem;
-  }
-  
-  /* Buttons */
-  .next-button,
-  .submit-button {
-    display: inline-block;
-    width: 100%;
-    padding: 0.75rem;
-    margin-top: 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    background-color: #007bff; /* default to a blue color */
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    text-align: center;
-    transition: background-color 0.3s ease;
-  }
-  
-  .next-button:hover {
-    background-color: #0069d9;
-  }
-  
-  .submit-button {
-    background-color: #28a745;
-  }
-  
-  .submit-button:hover {
-    background-color: #218838;
-  }
-  
-  /* Popup overlay */
-  .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999; /* ensure it’s above everything else */
-  }
-  
-  .popup-content {
-    background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 4px;
-    max-width: 20rem;
-    text-align: center;
-  }
-  
-  /* Footer container—NOT fixed, to avoid overlap. */
-  .footer-container {
-    margin-top: auto;
-    background-color: #fff;
-    border-top: 1px solid #ccc;
-    padding: 1rem 0;
-  }
-  
+}
+
+/* 7) Label + input/textarea grouping */
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-text {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.input-field,
+.textarea-field {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.textarea-field {
+  resize: vertical; /* allow vertical resizing */
+}
+
+/* 8) Checkbox groups */
+.checkbox-group {
+  margin: 1rem 0;
+}
+
+.group-heading {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.checkbox-option input {
+  margin-right: 0.5rem;
+}
+
+/* 9) Buttons */
+.next-button,
+.submit-button {
+  display: inline-block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #007bff; /* default blue */
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.next-button:hover {
+  background-color: #0069d9;
+}
+
+.submit-button {
+  background-color: #28a745; /* green */
+}
+
+.submit-button:hover {
+  background-color: #218838;
+}
+
+/* 10) Popup overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* above everything */
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 4px;
+  max-width: 20rem;
+  text-align: center;
+}
+
+/* 11) Footer container (NOT fixed) */
+.footer-container {
+  margin-top: auto;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  padding: 1rem 0;
+}
