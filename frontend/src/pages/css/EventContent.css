@@ -144,9 +144,8 @@
   margin-bottom: 1rem;
 }
 
-/* Social button (LinkedIn icon) */
+/* Old social-btn (remove if you like)
 .social-btn {
-  margin-top: auto;
   background: none;
   border: none;
   cursor: pointer;
@@ -156,6 +155,26 @@
 }
 .social-btn:hover {
   color: #005684;
+}
+*/
+
+/* New LinkedIn button */
+.linkedin-btn {
+  background-color: #0077b5;
+  color: #fff;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem; /* space between icon & text */
+  margin-top: auto; /* push it to bottom if needed */
+}
+.linkedin-btn:hover {
+  background-color: #005684;
 }
 
 /* -----------------------------------------

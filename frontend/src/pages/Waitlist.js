@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../pages/Navbar";
 import Footer from "../pages/Footer"
 import "../pages/css/waitlist.css";
+import joinus from "../images/Joinus.png";
 
 export default function Waitlist() {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ export default function Waitlist() {
           {/* Image Section */}
           <div className="image-container">
             <img
-              src="/image/road.png"
+              src={joinus}
               alt="Join Us"
               className="featured-image"
             />
