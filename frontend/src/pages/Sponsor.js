@@ -1,10 +1,13 @@
+// -----------------------------
+// Sponsor.js
+// -----------------------------
 import React, { useState } from "react";
+// Update the path if needed
 import "./css/sponsor.css";
 
- // Start of Selection
+// (You said you’re using Supabase)
 import supabase from "../supabase";
-
-// Import Navbar and Footer from their own files
+// Adjust these if you have different paths
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import side from "../images/side.png";
@@ -79,8 +82,9 @@ export default function Sponsor() {
       if (error) {
         console.error("Error inserting data:", error);
       } else {
-        // Show success popup, then redirect after 5s
+        // Show success popup
         setShowPopup(true);
+        // redirect after 5s
         setTimeout(() => {
           window.location.href = "/";
         }, 5000);
@@ -91,26 +95,23 @@ export default function Sponsor() {
   };
 
   return (
-    <div className="sponsor-container">
+    <div className="hat-sponsor-container">
+      {/* Navbar at the top */}
       <Navbar />
 
-      <div className="main-content">
+      <div className="hat-main-content">
         {/* LEFT IMAGE SECTION */}
-        <div className="image-section">
-          <img
-            src={side}
-            alt="Architectural Dome"
-            className="side-image"
-          />
+        <div className="hat-image-section">
+          <img src={side} alt="Architectural Dome" className="hat-side-image" />
         </div>
 
         {/* FORM SECTION */}
-        <form className="sponsor-form" onSubmit={handleSubmit}>
-          <h2 className="section-title">Company Information</h2>
+        <form className="hat-sponsor-form" onSubmit={handleSubmit}>
+          <h2 className="hat-section-title">Company Information</h2>
 
-          <div className="form-grid">
+          <div className="hat-form-grid">
             {/* Company Name */}
-            <div className="form-group">
+            <div className="hat-form-group">
               <label htmlFor="companyName">Company Name:</label>
               <input
                 type="text"
@@ -122,7 +123,7 @@ export default function Sponsor() {
             </div>
 
             {/* Primary Contact */}
-            <div className="form-group">
+            <div className="hat-form-group">
               <label htmlFor="primaryContact">Primary Contact Name:</label>
               <input
                 type="text"
@@ -134,7 +135,7 @@ export default function Sponsor() {
             </div>
 
             {/* Email */}
-            <div className="form-group">
+            <div className="hat-form-group">
               <label htmlFor="email">Email Address:</label>
               <input
                 type="email"
@@ -146,7 +147,7 @@ export default function Sponsor() {
             </div>
 
             {/* Phone */}
-            <div className="form-group">
+            <div className="hat-form-group">
               <label htmlFor="phone">Phone Number:</label>
               <input
                 type="tel"
@@ -158,7 +159,7 @@ export default function Sponsor() {
             </div>
 
             {/* Website */}
-            <div className="form-group">
+            <div className="hat-form-group">
               <label htmlFor="website">Company Website:</label>
               <input
                 type="text"
@@ -170,7 +171,7 @@ export default function Sponsor() {
             </div>
 
             {/* Address */}
-            <div className="form-group">
+            <div className="hat-form-group">
               <label htmlFor="address">Company Address:</label>
               <input
                 type="text"
@@ -182,7 +183,7 @@ export default function Sponsor() {
             </div>
 
             {/* Company Description */}
-            <div className="form-group-large">
+            <div className="hat-form-group-large">
               <label htmlFor="companyDescription">
                 Briefly describe your company and its connection to the Texas
                 CPG industry:
@@ -197,10 +198,10 @@ export default function Sponsor() {
           </div>
 
           {/* SPONSORSHIP INTEREST */}
-          <h2 className="section-title">Sponsorship Interest</h2>
+          <h2 className="hat-section-title">Sponsorship Interest</h2>
 
           {/* Radio: Have you sponsored similar events before? */}
-          <div className="form-radio-group">
+          <div className="hat-form-radio-group">
             <p>Have you sponsored similar events before?</p>
             <label>
               <input
@@ -226,7 +227,7 @@ export default function Sponsor() {
 
           {/* If yes, show details text area */}
           {formData.sponsoredBefore === "Yes" && (
-            <div className="form-group-large">
+            <div className="hat-form-group-large">
               <label htmlFor="sponsorshipDetails">
                 If yes, please provide details:
               </label>
@@ -240,7 +241,7 @@ export default function Sponsor() {
           )}
 
           {/* Submit Button */}
-          <button type="submit" className="submit-button">
+          <button type="submit" className="hat-submit-button">
             Submit
           </button>
         </form>
@@ -248,16 +249,18 @@ export default function Sponsor() {
 
       {/* POPUP */}
       {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup-content">
-            <p className="popup-message">
+        <div className="hat-popup-overlay">
+          <div className="hat-popup-content">
+            <p className="hat-popup-message">
               Thank you for your submission! Redirecting you to the homepage...
             </p>
           </div>
         </div>
       )}
 
+      {/* Footer at the bottom */}
       <Footer />
     </div>
   );
 }
+
