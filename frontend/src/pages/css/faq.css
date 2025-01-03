@@ -1,83 +1,82 @@
 /* FAQ Section Wrapper */
 .faq-section {
-    padding: 2rem 1rem;
+    padding: 4rem 2rem; /* Increased padding for a bigger section */
     background-color: #fafafa;
-  }
+}
   
-  /* Container to center content nicely */
-  .faq-container {
-    max-width: 800px;
+/* Container to center content nicely */
+.faq-container {
+    max-width: 1000px; /* Increased max-width for a larger container */
     margin: 0 auto;
     text-align: center;
-  }
+}
   
-  /* Section Title */
-  .faq-title {
-    font-size: 2rem;
+/* Section Title */
+.faq-title {
+    font-size: 3rem; /* Increased font size for the title */
     font-weight: bold;
-    margin-bottom: 1rem;
-  }
+    margin-bottom: 1.5rem; /* Increased margin for better spacing */
+}
   
-  /* Intro Paragraph */
-  .faq-intro {
+/* Intro Paragraph */
+.faq-intro {
     color: #555;
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    line-height: 1.5;
-    max-width: 650px;
+    font-size: 1.25rem; /* Increased font size for the intro paragraph */
+    margin-bottom: 2.5rem; /* Increased margin for better spacing */
+    line-height: 1.6; /* Slightly increased line height for readability */
+    max-width: 800px; /* Increased max-width for the intro paragraph */
     margin-left: auto;
     margin-right: auto;
-  }
+}
   
-  /* List containing all FAQ items */
-  .faq-list {
+/* List containing all FAQ items */
+.faq-list {
     text-align: left; /* We want our questions to align left */
-  }
+}
   
-  /* Individual FAQ item container */
-  .faq-item {
+/* Individual FAQ item container */
+.faq-item {
     border-bottom: 1px solid #ddd;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-  }
+    margin-bottom: 1.5rem; /* Increased margin for better spacing */
+    padding-bottom: 1.5rem; /* Increased padding for better spacing */
+}
   
-  /* Header (question) style */
-  .faq-item-header {
+/* Header (question) style */
+.faq-item-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     background: none;
     border: none;
-    font-size: 1rem;
+    font-size: 1.25rem; /* Increased font size for the question */
     font-weight: 600;
     cursor: pointer;
     text-align: left;
     padding: 0;
     color: #333;
-  }
+}
   
-  /* Plus/Minus icon on the right */
-  .faq-item-icon {
+/* Plus/Minus icon on the right */
+.faq-item-icon {
     margin-left: 1rem;
     font-weight: bold;
-    font-size: 1.5rem;
-  }
+    font-size: 1.75rem; /* Increased icon size */
+}
   
-  /* Body (answer) style */
-  .faq-item-body {
+/* Body (answer) style */
+.faq-item-body {
     margin-top: 0.5rem;
-    font-size: 0.95rem;
+    font-size: 1.1rem; /* Increased font size for the answer */
     color: #666;
-    line-height: 1.4;
+    line-height: 1.5; /* Increased line height for readability */
     transition: all 0.3s ease-in-out;
-  }
-  
+}
 
 /* -----------------------------------------
    FAQ SECTION
 ------------------------------------------ */
 .faq-section {
-  padding: 60px 20px;
+  padding: 80px 40px; /* Increased padding for a bigger section */
   text-align: center;
 }

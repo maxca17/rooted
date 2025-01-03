@@ -1,4 +1,5 @@
 // EVENT CONTENT (Carousel + Team)
+import { FaLinkedin } from "react-icons/fa"; // Import LinkedIn icon
 import katrina from "../images/katr.png";
 import rick from "../images/rick.png";
 import jeff from "../images/jeff.png";
@@ -151,13 +152,12 @@ function EventContent() {
                 />
                 <h4>{member.name}</h4>
                 <p>{member.role}</p>
-                {/* LinkedIn button */}
-                <button
-                  className="linkedin-btn"
+                {/* LinkedIn icon */}
+                <FaLinkedin
+                  className="linkedin-icon"
                   onClick={() => window.open(member.link, "_blank")}
-                >
-                  <i className="fab fa-linkedin"></i> LinkedIn
-                </button>
+                  style={{ cursor: 'pointer', fontSize: '1.5rem', color: '#0077b5' }}
+                />
               </div>
             ))}
           </div>
@@ -176,13 +176,12 @@ function EventContent() {
                 />
                 <h4>{member.name}</h4>
                 <p>{member.role}</p>
-                {/* LinkedIn button */}
-                <button
-                  className="linkedin-btn"
+                {/* LinkedIn icon */}
+                <FaLinkedin
+                  className="linkedin-icon"
                   onClick={() => window.open(member.link, "_blank")}
-                >
-                  <i className="fab fa-linkedin"></i> LinkedIn
-                </button>
+                  style={{ cursor: 'pointer', fontSize: '1.5rem', color: '#0077b5' }}
+                />
               </div>
             ))}
           </div>
