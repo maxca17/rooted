@@ -1,50 +1,28 @@
 // FOOTER
 import "./css/footer.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter, faYoutube, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
 function Footer() {
     const CURRENT_YEAR = new Date().getFullYear();
-    const links = ["Company", "About Us", "Team", "Products", "Blog"];
+    const links = [
+      { icon: faTwitter, url: "https://x.com/rootedexpo" },
+      { icon: faYoutube, url: "https://www.youtube.com/@RootedExpo" },
+      { icon: faInstagram, url: "https://www.instagram.com/rootedexpo/" },
+      { icon: faLinkedin, url: "https://www.linkedin.com/company/rootedexpo" }
+    ];
   
     return (
       <footer className="footer-section">
         <div className="footer-top">
           <h2>Rooted Expo</h2>
-          <ul className="footer-links">
-            {links.map((link, idx) => (
-              <li key={idx}>
-                <a href="/#">{link}</a>
-              </li>
-            ))}
-          </ul>
-          <div className="footer-icons">
-            <a
-              href="https://x.com/rootedexpo"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fa-brands fa-twitter" />
+        </div>
+        <div className="footer-icons">
+          {links.map((link, idx) => (
+            <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={link.icon} />
             </a>
-            <a
-              href="https://www.youtube.com/@RootedExpo"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fa-brands fa-youtube" />
-            </a>
-            <a
-              href="https://www.instagram.com/rootedexpo/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fa-brands fa-instagram" />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/rootedexpo"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fa-brands fa-linkedin" />
-            </a>
-          </div>
+          ))}
         </div>
         <p className="footer-copyright">
           &copy; {CURRENT_YEAR} Rooted Expo. All rights reserved.

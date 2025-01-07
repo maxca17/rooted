@@ -1,10 +1,13 @@
-/* OUR STATS STYLES */
-.our-stats-section {
+/* ===========================
+   OUR STATS STYLES
+   =========================== */
+
+   .our-stats-section {
     /* Centers the section and adds breathing room */
     max-width: 1200px;
     margin: 80px auto;
     padding: 0 20px;
-  
+    
     /* Layout: text on the left, stats on the right */
     display: flex;
     flex-wrap: wrap; /* Allows wrapping on smaller screens */
@@ -12,14 +15,16 @@
     align-items: flex-start;
   }
   
-  /* LEFT TEXT AREA */
+  /* ---------
+     LEFT TEXT AREA
+     --------- */
   .our-stats-text {
     max-width: 500px;
     margin-bottom: 40px; /* spacing for smaller screens */
   }
   
   .our-stats-text h6 {
-    color: #F7931D;       /* Orange shade */
+    color: #F7931D; /* Orange shade */
     font-size: 16px;
     font-weight: normal;
     margin-bottom: 8px;
@@ -30,18 +35,20 @@
   .our-stats-text h2 {
     font-size: 42px;
     font-weight: 700;
-    color: #232F3E;       /* A dark gray/black */
+    color: #232F3E; /* A dark gray/black */
     margin-bottom: 16px;
   }
   
   .our-stats-text p {
-    color: #6f7b7d;       /* A mid-gray color */
+    color: #6f7b7d; /* A mid-gray color */
     font-size: 18px;
     line-height: 1.5;
-    margin-bottom: 0;     /* Adjust as needed */
+    margin-bottom: 0; /* Adjust as needed */
   }
   
-  /* RIGHT STATS CARDS */
+  /* ---------
+     RIGHT STATS CARDS
+     --------- */
   .our-stats-cards {
     display: grid;
     grid-template-columns: repeat(2, auto);

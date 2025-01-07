@@ -28,10 +28,10 @@
   width: 100%;
   height: auto;           /* Maintain aspect ratio */
   object-fit: cover;      /* Nicely crop any oversized image */
-  display: block;         /* Ensure there’s no extra white space under image */
+  display: block;         /* Ensure no extra whitespace under image */
 }
 
-/* On larger screens, split image/form 50/50 */
+/* On larger screens, split image/form 50/50 — but only if formStep is 1 */
 @media (min-width: 992px) {
   .brand-left-image-section {
     width: 50%;
@@ -39,28 +39,17 @@
   }
 }
 
-/* OPTIONAL: If you want a “hero” style image at desktop sizes only:
-@media (min-width: 992px) {
-  .brand-left-image-section {
-    height: 100vh;
-  }
-  .brand-left-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-*/
-
 /* 4) FORM SECTION */
 .brand-form-section {
-  width: 100%;
+  width: 100%; /* Default to full width */
   background-color: #fff;
   padding: 1rem 1.5rem 2rem 1.5rem;
   box-sizing: border-box;
+}
 
-  /* On larger screens (e.g., 992px and up) let it share space with the image */
-  @media (min-width: 992px) {
+/* If we were on step 1 AND we have an image, we can do 50/50 at large screens */
+@media (min-width: 992px) {
+  .brand-form-section.half-width {
     width: 50%;
   }
 }
@@ -204,3 +193,4 @@
   border-top: 1px solid #ccc;
   padding: 1rem 0;
 }
+

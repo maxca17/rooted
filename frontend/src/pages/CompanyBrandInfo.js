@@ -4,7 +4,9 @@ import Navbar from "../pages/Navbar";
 import Footer from "../pages/Footer";
 import supabase from "../supabase";
 import "../pages/css/companyBrandInfo.css";
-import networkingevent from '../images/Networking Event.jpeg'
+
+// Replace with your actual image import
+import networkingevent from '../images/Networking Event.jpeg';
 
 export default function CompanyBrandInfo() {
   const navigate = useNavigate();
@@ -87,14 +89,22 @@ export default function CompanyBrandInfo() {
           <div className="brand-left-image-section">
             <img
               src={networkingevent}
-              alt=""
+              alt="Networking Event"
               className="brand-left-image"
             />
           </div>
         )}
 
-        {/* Form Section */}
-        <div className="brand-form-section">
+        {/* 
+          Form Section
+          - If we are on step 1, we can keep the half-width layout on large screens
+          - If we are on step 2, go full-width so it doesn't look squished
+        */}
+        <div
+          className={`brand-form-section ${
+            formStep === 1 ? "half-width" : ""
+          }`}
+        >
           {formStep === 1 && (
             <form className="brand-form-content" onSubmit={handleNext}>
               <h2 className="brand-form-heading">Company Information</h2>
