@@ -4,6 +4,7 @@ import Navbar from "../pages/Navbar";
 import Footer from "../pages/Footer";
 import supabase from "../supabase";
 import "../pages/css/buyers.css";
+import office from '../images/office.jpeg'
 
 export default function BuyerForm() {
   const navigate = useNavigate();
@@ -92,7 +93,7 @@ export default function BuyerForm() {
         {/* Left Image Section */}
         <div className="left-image-section">
           <img
-            src="/image/boots.png"
+            src={office}
             alt="Boots display"
             className="left-image"
           />

@@ -4,6 +4,7 @@ import Navbar from "../pages/Navbar";
 import Footer from "../pages/Footer";
 import supabase from "../supabase";
 import "../pages/css/companyBrandInfo.css";
+import networkingevent from '../images/Networking Event.jpeg'
 
 export default function CompanyBrandInfo() {
   const navigate = useNavigate();
@@ -77,30 +78,30 @@ export default function CompanyBrandInfo() {
   };
 
   return (
-    <div className="company-brand-info-container">
+    <div className="brand-company-brand-info-container">
       <Navbar />
 
-      <div className="main-section">
+      <div className="brand-main-section">
         {/* Left Image Section - Only shows on step 1 */}
         {formStep === 1 && (
-          <div className="left-image-section">
+          <div className="brand-left-image-section">
             <img
-              src="/image/boots.png"
-              alt="Brand image"
-              className="left-image"
+              src={networkingevent}
+              alt=""
+              className="brand-left-image"
             />
           </div>
         )}
 
         {/* Form Section */}
-        <div className="form-section">
+        <div className="brand-form-section">
           {formStep === 1 && (
-            <form className="form-content" onSubmit={handleNext}>
-              <h2 className="form-heading">Company Information</h2>
+            <form className="brand-form-content" onSubmit={handleNext}>
+              <h2 className="brand-form-heading">Company Information</h2>
 
-              <div className="input-grid">
-                <div className="input-group">
-                  <label htmlFor="companyName" className="input-label">
+              <div className="brand-input-grid">
+                <div className="brand-input-group">
+                  <label htmlFor="companyName" className="brand-input-label">
                     Company Name:
                   </label>
                   <input
@@ -109,12 +110,12 @@ export default function CompanyBrandInfo() {
                     name="companyName"
                     value={formData.companyName}
                     onChange={handleChange}
-                    className="input-field"
+                    className="brand-input-field"
                   />
                 </div>
 
-                <div className="input-group">
-                  <label htmlFor="primaryContact" className="input-label">
+                <div className="brand-input-group">
+                  <label htmlFor="primaryContact" className="brand-input-label">
                     Primary Contact Name:
                   </label>
                   <input
@@ -123,12 +124,12 @@ export default function CompanyBrandInfo() {
                     name="primaryContact"
                     value={formData.primaryContact}
                     onChange={handleChange}
-                    className="input-field"
+                    className="brand-input-field"
                   />
                 </div>
 
-                <div className="input-group">
-                  <label htmlFor="email" className="input-label">
+                <div className="brand-input-group">
+                  <label htmlFor="email" className="brand-input-label">
                     Email Address:
                   </label>
                   <input
@@ -137,12 +138,12 @@ export default function CompanyBrandInfo() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="input-field"
+                    className="brand-input-field"
                   />
                 </div>
 
-                <div className="input-group">
-                  <label htmlFor="phone" className="input-label">
+                <div className="brand-input-group">
+                  <label htmlFor="phone" className="brand-input-label">
                     Phone Number:
                   </label>
                   <input
@@ -151,12 +152,12 @@ export default function CompanyBrandInfo() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="input-field"
+                    className="brand-input-field"
                   />
                 </div>
 
-                <div className="input-group">
-                  <label htmlFor="website" className="input-label">
+                <div className="brand-input-group">
+                  <label htmlFor="website" className="brand-input-label">
                     Company Website:
                   </label>
                   <input
@@ -165,12 +166,12 @@ export default function CompanyBrandInfo() {
                     name="website"
                     value={formData.website}
                     onChange={handleChange}
-                    className="input-field"
+                    className="brand-input-field"
                   />
                 </div>
 
-                <div className="input-group">
-                  <label htmlFor="address" className="input-label">
+                <div className="brand-input-group">
+                  <label htmlFor="address" className="brand-input-label">
                     Company Address:
                   </label>
                   <input
@@ -179,16 +180,16 @@ export default function CompanyBrandInfo() {
                     name="address"
                     value={formData.address}
                     onChange={handleChange}
-                    className="input-field"
+                    className="brand-input-field"
                   />
                 </div>
               </div>
 
-              <h2 className="form-heading">Brand Information</h2>
-              <div className="input-group">
+              <h2 className="brand-form-heading">Brand Information</h2>
+              <div className="brand-input-group">
                 <label
                   htmlFor="brandDescription"
-                  className="input-label textarea-label"
+                  className="brand-input-label brand-textarea-label"
                 >
                   Briefly describe your company and its connection to the Texas
                   CPG industry:
@@ -198,17 +199,17 @@ export default function CompanyBrandInfo() {
                   name="brandDescription"
                   value={formData.brandDescription}
                   onChange={handleChange}
-                  className="textarea-field"
+                  className="brand-textarea-field"
                 />
               </div>
 
-              <h2 className="form-heading">Sponsorship Interest</h2>
+              <h2 className="brand-form-heading">Sponsorship Interest</h2>
 
-              <div className="radio-checkbox-group">
-                <h3 className="group-heading">
+              <div className="brand-radio-checkbox-group">
+                <h3 className="brand-group-heading">
                   Have you sponsored similar events before?
                 </h3>
-                <label className="radio-option">
+                <label className="brand-radio-option">
                   <input
                     type="radio"
                     name="exhibitedBefore"
@@ -218,7 +219,7 @@ export default function CompanyBrandInfo() {
                   />
                   Yes
                 </label>
-                <label className="radio-option">
+                <label className="brand-radio-option">
                   <input
                     type="radio"
                     name="exhibitedBefore"
@@ -230,8 +231,8 @@ export default function CompanyBrandInfo() {
                 </label>
               </div>
 
-              <div className="radio-checkbox-group">
-                <h3 className="group-heading">
+              <div className="brand-radio-checkbox-group">
+                <h3 className="brand-group-heading">
                   What are your primary goals for sponsoring Rooted Expo?
                 </h3>
                 {[
@@ -241,7 +242,7 @@ export default function CompanyBrandInfo() {
                   "Supporting Local Businesses",
                   "Product Launch",
                 ].map((goal) => (
-                  <label key={goal} className="checkbox-option">
+                  <label key={goal} className="brand-checkbox-option">
                     <input
                       type="checkbox"
                       name="categories"
@@ -254,20 +255,20 @@ export default function CompanyBrandInfo() {
                 ))}
               </div>
 
-              <button type="submit" className="next-button">
+              <button type="submit" className="brand-next-button">
                 Next
               </button>
             </form>
           )}
 
           {formStep === 2 && (
-            <form className="form-content" onSubmit={handleSubmit}>
-              <h2 className="form-heading">Exhibition Needs</h2>
+            <form className="brand-form-content" onSubmit={handleSubmit}>
+              <h2 className="brand-form-heading">Exhibition Needs</h2>
 
-              <div className="radio-checkbox-group">
-                <h3 className="group-heading">Preferred Booth Size:</h3>
+              <div className="brand-radio-checkbox-group">
+                <h3 className="brand-group-heading">Preferred Booth Size:</h3>
                 {["10x10", "10x20", "20x20", "Custom Size"].map((booth) => (
-                  <label key={booth} className="checkbox-option">
+                  <label key={booth} className="brand-checkbox-option">
                     <input
                       type="checkbox"
                       name="boothSize"
@@ -280,7 +281,7 @@ export default function CompanyBrandInfo() {
                 ))}
               </div>
 
-              <button type="submit" className="submit-button">
+              <button type="submit" className="brand-submit-button">
                 Submit
               </button>
             </form>
@@ -289,15 +290,15 @@ export default function CompanyBrandInfo() {
       </div>
 
       {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup-content">
+        <div className="brand-popup-overlay">
+          <div className="brand-popup-content">
             <p>Thank you for your submission! Redirecting you to the homepage...</p>
           </div>
         </div>
       )}
 
       {/* Fixed Footer at the bottom */}
-      <div className="footer-container">
+      <div className="brand-footer-container">
         <Footer />
       </div>
     </div>
