@@ -4,7 +4,7 @@ import Navbar from "../pages/Navbar";
 import Footer from "../pages/Footer";
 import supabase from "../supabase";
 import "../pages/css/buyers.css";
-import office from '../images/office.jpeg'
+import office from "../images/liz.jpg";
 
 export default function BuyerForm() {
   const navigate = useNavigate();
@@ -84,30 +84,26 @@ export default function BuyerForm() {
   };
 
   return (
-    <div className="buyer-form-container">
+    <div className="bf-container">
       {/* Top Navbar */}
       <Navbar />
 
       {/* Main content area */}
-      <div className="main-section">
+      <div className="main-section-alt">
         {/* Left Image Section */}
-        <div className="left-image-section">
-          <img
-            src={office}
-            alt="Boots display"
-            className="left-image"
-          />
+        <div className="left-img-sec">
+          <img src={office} alt="Boots display" className="left-img-alt" />
         </div>
 
         {/* Form Section */}
-        <div className="form-section">
-          <form className="form-content" onSubmit={handleSubmit}>
-            <h2 className="section-heading">Company Information</h2>
+        <div className="form-sec-alt">
+          <form className="form-content-alt" onSubmit={handleSubmit}>
+            <h2 className="heading-alt">Company Information</h2>
 
-            <div className="input-grid">
+            <div className="grid-alt">
               {/* Company Name */}
-              <div className="input-group">
-                <label htmlFor="companyName" className="label-text">
+              <div className="group-alt">
+                <label htmlFor="companyName" className="label-alt">
                   Company Name:
                 </label>
                 <input
@@ -116,13 +112,13 @@ export default function BuyerForm() {
                   name="companyName"
                   value={formData.companyName}
                   onChange={handleChange}
-                  className="input-field"
+                  className="field-alt"
                 />
               </div>
 
               {/* Primary Contact */}
-              <div className="input-group">
-                <label htmlFor="primaryContact" className="label-text">
+              <div className="group-alt">
+                <label htmlFor="primaryContact" className="label-alt">
                   Primary Contact Name:
                 </label>
                 <input
@@ -131,13 +127,13 @@ export default function BuyerForm() {
                   name="primaryContact"
                   value={formData.primaryContact}
                   onChange={handleChange}
-                  className="input-field"
+                  className="field-alt"
                 />
               </div>
 
               {/* Email */}
-              <div className="input-group">
-                <label htmlFor="email" className="label-text">
+              <div className="group-alt">
+                <label htmlFor="email" className="label-alt">
                   Email Address:
                 </label>
                 <input
@@ -146,13 +142,13 @@ export default function BuyerForm() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="input-field"
+                  className="field-alt"
                 />
               </div>
 
               {/* Phone */}
-              <div className="input-group">
-                <label htmlFor="phone" className="label-text">
+              <div className="group-alt">
+                <label htmlFor="phone" className="label-alt">
                   Phone Number:
                 </label>
                 <input
@@ -161,13 +157,13 @@ export default function BuyerForm() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="input-field"
+                  className="field-alt"
                 />
               </div>
 
               {/* Website */}
-              <div className="input-group">
-                <label htmlFor="website" className="label-text">
+              <div className="group-alt">
+                <label htmlFor="website" className="label-alt">
                   Company Website:
                 </label>
                 <input
@@ -176,13 +172,13 @@ export default function BuyerForm() {
                   name="website"
                   value={formData.website}
                   onChange={handleChange}
-                  className="input-field"
+                  className="field-alt"
                 />
               </div>
 
               {/* Address */}
-              <div className="input-group">
-                <label htmlFor="address" className="label-text">
+              <div className="group-alt">
+                <label htmlFor="address" className="label-alt">
                   Company Address:
                 </label>
                 <input
@@ -191,16 +187,13 @@ export default function BuyerForm() {
                   name="address"
                   value={formData.address}
                   onChange={handleChange}
-                  className="input-field"
+                  className="field-alt"
                 />
               </div>
 
               {/* Company Description */}
-              <div className="input-group wide-column">
-                <label
-                  htmlFor="companyDescription"
-                  className="label-text"
-                >
+              <div className="group-alt wide-col-alt">
+                <label htmlFor="companyDescription" className="label-alt">
                   Briefly describe your company and its connection to the Texas
                   CPG industry:
                 </label>
@@ -209,19 +202,19 @@ export default function BuyerForm() {
                   name="companyDescription"
                   value={formData.companyDescription}
                   onChange={handleChange}
-                  className="textarea-field"
+                  className="text-field-alt"
                 />
               </div>
             </div>
 
-            <h2 className="section-heading">Sponsorship Interest</h2>
+            <h2 className="heading-alt">Sponsorship Interest</h2>
 
             {/* Sponsored Before */}
-            <div className="radio-checkbox-group">
-              <h3 className="group-heading">
+            <div className="rc-group-alt">
+              <h3 className="group-heading-alt">
                 Have you sponsored similar events before?
               </h3>
-              <label className="radio-option">
+              <label className="radio-opt-alt">
                 <input
                   type="radio"
                   name="sponsoredBefore"
@@ -231,7 +224,7 @@ export default function BuyerForm() {
                 />
                 Yes
               </label>
-              <label className="radio-option">
+              <label className="radio-opt-alt">
                 <input
                   type="radio"
                   name="sponsoredBefore"
@@ -245,11 +238,8 @@ export default function BuyerForm() {
 
             {/* Sponsorship Details */}
             {formData.sponsoredBefore === "Yes" && (
-              <div className="input-group wide-column">
-                <label
-                  htmlFor="sponsorshipDetails"
-                  className="label-text"
-                >
+              <div className="group-alt wide-col-alt">
+                <label htmlFor="sponsorshipDetails" className="label-alt">
                   If yes, please provide details:
                 </label>
                 <textarea
@@ -257,14 +247,14 @@ export default function BuyerForm() {
                   name="sponsorshipDetails"
                   value={formData.sponsorshipDetails}
                   onChange={handleChange}
-                  className="textarea-field"
+                  className="text-field-alt"
                 />
               </div>
             )}
 
             {/* Primary Goals */}
-            <div className="radio-checkbox-group">
-              <h3 className="group-heading">
+            <div className="rc-group-alt">
+              <h3 className="group-heading-alt">
                 What are your primary goals for sponsoring Rooted Expo?
               </h3>
               {[
@@ -274,7 +264,7 @@ export default function BuyerForm() {
                 "Supporting Local Businesses",
                 "Product Launch",
               ].map((goal) => (
-                <label key={goal} className="checkbox-option">
+                <label key={goal} className="checkbox-opt-alt">
                   <input
                     type="checkbox"
                     name="goals"
@@ -288,8 +278,8 @@ export default function BuyerForm() {
             </div>
 
             {/* Opportunities */}
-            <div className="radio-checkbox-group">
-              <h3 className="group-heading">
+            <div className="rc-group-alt">
+              <h3 className="group-heading-alt">
                 Which of the following opportunities would you be interested in?
               </h3>
               {[
@@ -301,7 +291,7 @@ export default function BuyerForm() {
                 "VIP Event Access",
                 "Other",
               ].map((opportunity) => (
-                <label key={opportunity} className="checkbox-option">
+                <label key={opportunity} className="checkbox-opt-alt">
                   <input
                     type="checkbox"
                     name="opportunities"
@@ -315,8 +305,8 @@ export default function BuyerForm() {
             </div>
 
             {/* Additional Info */}
-            <div className="input-group wide-column">
-              <label htmlFor="additionalInfo" className="label-text">
+            <div className="group-alt wide-col-alt">
+              <label htmlFor="additionalInfo" className="label-alt">
                 Please provide any additional information or special requests:
               </label>
               <textarea
@@ -324,12 +314,12 @@ export default function BuyerForm() {
                 name="additionalInfo"
                 value={formData.additionalInfo}
                 onChange={handleChange}
-                className="textarea-field"
+                className="text-field-alt"
               />
             </div>
 
             {/* Submit */}
-            <button type="submit" className="submit-button">
+            <button type="submit" className="submit-btn-alt">
               Submit
             </button>
           </form>
@@ -338,8 +328,8 @@ export default function BuyerForm() {
 
       {/* Popup */}
       {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup-content">
+        <div className="overlay-alt">
+          <div className="popup-content-alt">
             <p>Thank you for your submission! Redirecting you to the homepage...</p>
           </div>
         </div>

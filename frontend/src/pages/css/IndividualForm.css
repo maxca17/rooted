@@ -1,9 +1,9 @@
 /*************************************
- * IndividualForm.css
+ * Container & Layout
  *************************************/
 
-/* 1) Container for entire page */
-.individual-form-container {
+/* Replaces .individual-form-container */
+.ind-form-container-alt {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -11,97 +11,109 @@
   position: relative;
 }
 
-/* 2) The main section wraps the image (step 1) + form.
-   On large screens, they go side by side.
-   On small screens, they stack. */
-.main-section {
+/* Replaces .main-section */
+.main-section-alt {
   display: flex;
-  flex-wrap: wrap;     /* allows stacking on smaller screens */
-  margin-bottom: 6rem; /* space above the footer so it won't overlap */
-  padding-top: 6rem;   /* adjust if you have a fixed navbar so content isn’t hidden */
+  flex-wrap: wrap;
+  margin-bottom: 6rem; 
+  padding-top: 6rem;  
 }
 
-/* 3) Left Image Section (shown only on step 1) */
-.left-image-section {
+/* Left image section */
+.left-image-sec-alt {
   width: 100%;
   max-height: 600px;
   overflow: hidden;
-  margin-bottom: 1rem; /* so there's some space below in mobile view */
+  margin-bottom: 1rem;
 }
 
-.left-image {
+.left-image-alt {
   width: 100%;
   height: auto;
-  object-fit: cover;  /* ensures it won’t distort */
+  object-fit: cover;
   display: block;
 }
 
-/* On large screens (≥992px), give the image half the width */
 @media (min-width: 992px) {
-  .left-image-section {
+  .left-image-sec-alt {
     width: 50%;
     margin-bottom: 0;
   }
 }
 
-/* 4) Form Section */
-.form-section {
+/* Form section */
+.form-section-alt {
   width: 100%;
   background-color: #fff;
   padding: 2rem 1rem;
   box-sizing: border-box;
 }
 
-/* On large screens (≥992px), form is half the width, side by side with image */
 @media (min-width: 992px) {
-  .form-section {
+  .form-section-alt {
     width: 50%;
   }
 }
 
-/* 5) Actual form content inside */
-.form-content {
-  max-width: 40rem; /* so it doesn't stretch too wide */
+/* Actual form content inside */
+.form-content-alt {
+  max-width: 40rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
 
-/* Headings */
-.section-heading {
+/*************************************
+ * Headings & Error
+ *************************************/
+
+/* Replaces .section-heading */
+.section-heading-alt {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
 
-/* 6) Input grid (for name/email/phone) */
-.input-grid {
+/* Simple error message styling */
+.error-message-alt {
+  color: #b30000; /* red text */
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/*************************************
+ * Inputs & Groups
+ *************************************/
+
+/* Replaces .input-grid */
+.input-grid-alt {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
 }
 
-/* Two-column layout on medium screens (≥768px) */
 @media (min-width: 768px) {
-  .input-grid {
+  .input-grid-alt {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-/* 7) Label + input/textarea grouping */
-.input-group {
+/* Replaces .input-group */
+.input-group-alt {
   display: flex;
   flex-direction: column;
 }
 
-.label-text {
+/* Replaces .label-text */
+.label-text-alt {
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
-.input-field,
-.textarea-field {
+/* Replaces .input-field, .textarea-field */
+.input-field-alt,
+.textarea-field-alt {
   border: 1px solid #ccc;
   padding: 0.5rem;
   border-radius: 4px;
@@ -110,33 +122,42 @@
   width: 100%;
 }
 
-.textarea-field {
-  resize: vertical; /* allow vertical resizing */
+.textarea-field-alt {
+  resize: vertical;
 }
 
-/* 8) Checkbox groups */
-.checkbox-group {
+/*************************************
+ * Checkboxes
+ *************************************/
+
+/* Replaces .checkbox-group */
+.checkbox-group-alt {
   margin: 1rem 0;
 }
 
-.group-heading {
+/* Replaces .group-heading */
+.group-heading-alt {
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
-.checkbox-option {
+/* Replaces .checkbox-option */
+.checkbox-option-alt {
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
 }
 
-.checkbox-option input {
+.checkbox-option-alt input {
   margin-right: 0.5rem;
 }
 
-/* 9) Buttons */
-.next-button,
-.submit-button {
+/*************************************
+ * Buttons
+ *************************************/
+
+/* Replaces .submit-button */
+.submit-button-alt {
   display: inline-block;
   width: 100%;
   padding: 0.75rem;
@@ -144,7 +165,7 @@
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
-  background-color: #007bff; /* default blue */
+  background-color: #007bff; 
   cursor: pointer;
   border: none;
   border-radius: 4px;
@@ -152,20 +173,16 @@
   transition: background-color 0.3s ease;
 }
 
-.next-button:hover {
+.submit-button-alt:hover {
   background-color: #0069d9;
 }
 
-.submit-button {
-  background-color: #28a745; /* green */
-}
+/*************************************
+ * Popup Overlay
+ *************************************/
 
-.submit-button:hover {
-  background-color: #218838;
-}
-
-/* 10) Popup overlay */
-.popup-overlay {
+/* Replaces .popup-overlay */
+.popup-overlay-alt {
   position: fixed;
   top: 0;
   left: 0;
@@ -175,10 +192,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999; /* above everything */
+  z-index: 999;
 }
 
-.popup-content {
+/* Replaces .popup-content */
+.popup-content-alt {
   background-color: #fff;
   padding: 1.5rem;
   border-radius: 4px;
@@ -186,8 +204,12 @@
   text-align: center;
 }
 
-/* 11) Footer container (NOT fixed) */
-.footer-container {
+/*************************************
+ * Footer
+ *************************************/
+
+/* Replaces .footer-container */
+.footer-container-alt {
   margin-top: auto;
   background-color: #fff;
   border-top: 1px solid #ccc;

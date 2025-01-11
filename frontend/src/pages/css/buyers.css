@@ -1,176 +1,182 @@
-/* CONTAINER */
-.buyer-form-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f2f2f2; /* A light background */
-    position: relative;
-  }
-  
-  /* MAIN SECTION: image on the left, form on the right (on larger screens) */
-  .main-section {
-    display: flex;
-    flex-wrap: wrap;       /* Stacks on smaller screens */
-    margin-top: 6rem;      /* Adjust if you have a fixed Navbar, etc. */
-  }
-  
-  /* LEFT IMAGE SECTION */
-  .left-image-section {
-    width: 100%;
-    max-height: 600px;
-    overflow: hidden;
-  }
-  
-  /* The image itself */
-  .left-image {
-    width: 100%;
+/* 1. Basic reset to avoid unexpected layout issues */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2. Buyer form container: occupies the full viewport height */
+.bf-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f2f2f2; /* Light background */
+  position: relative;
+  margin-top: 1rem;
+}
+
+/* 3. Main section: flex container for image + form, filling remaining vertical space */
+.main-section-alt {
+  display: flex;
+  flex-wrap: wrap; /* Stack on small screens */
+  flex: 1;         /* Grow to fill the container */
+  margin-top: 6rem; /* Adjust if you have a fixed navbar, etc. */
+}
+
+/* 4. Left image section: full width on mobile; half width on large screens */
+.left-img-sec {
+  width: 100%;
+  min-height: 300px; /* Provide a minimal height for smaller screens */
+  overflow: hidden;  /* Hide overflow for object-fit: cover */
+}
+
+/* On large screens, split 50-50 */
+@media (min-width: 992px) {
+  .left-img-sec {
+    width: 50%;
     height: auto;
-    object-fit: cover;
-    display: block;
+    flex: 1;
   }
-  
-  /* On larger screens, split */
-  @media (min-width: 992px) {
-    .left-image-section {
-      width: 50%;
-    }
+}
+
+/* 5. The image itself: fill its container with object-fit: cover */
+.left-img-alt {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 6. Form section: full width on mobile; half on large screens */
+.form-sec-alt {
+  width: 100%;
+  background-color: #fff;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 992px) {
+  .form-sec-alt {
+    width: 50%;
+    flex: 1;
   }
-  
-  /* FORM SECTION */
-  .form-section {
-    width: 100%;
-    background-color: #fff;
-    padding: 2rem 1.5rem;
-    box-sizing: border-box;
+}
+
+/* 7. Inner form content: optional max-width, centered */
+.form-content-alt {
+  max-width: 40rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading-alt {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+/* 8. Grid for input fields */
+.grid-alt {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .grid-alt {
+    grid-template-columns: 1fr 1fr;
   }
-  
-  @media (min-width: 992px) {
-    .form-section {
-      width: 50%;
-    }
-  }
-  
-  /* FORM CONTENT */
-  .form-content {
-    max-width: 40rem;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .section-heading {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-  }
-  
-  /* GRID FOR INPUTS */
-  .input-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  @media (min-width: 768px) {
-    .input-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  
-  /* Extra wide column for textareas that can span full width */
-  .wide-column {
-    grid-column: 1 / -1;
-  }
-  
-  /* Label + Input/Textarea structure */
-  .input-group {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .label-text {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  
-  .input-field,
-  .textarea-field {
-    border: 1px solid #ccc;
-    padding: 0.5rem;
-    border-radius: 4px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    width: 100%;
-  }
-  
-  /* Let textarea be resizable vertically */
-  .textarea-field {
-    resize: vertical;
-  }
-  
-  /* RADIO/CHECKBOX groups */
-  .radio-checkbox-group {
-    margin-bottom: 1.5rem;
-  }
-  
-  .group-heading {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  
-  .radio-option,
-  .checkbox-option {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
-  }
-  
-  .radio-option input,
-  .checkbox-option input {
-    margin-right: 0.5rem;
-  }
-  
-  /* SUBMIT BUTTON */
-  .submit-button {
-    display: inline-block;
-    width: 100%;
-    padding: 0.75rem;
-    margin-top: 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    background-color: #007bff;
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    text-align: center;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submit-button:hover {
-    background-color: #0056cc;
-  }
-  
-  /* POPUP OVERLAY */
-  .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-  }
-  
-  .popup-content {
-    background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 4px;
-    max-width: 20rem;
-    text-align: center;
-  }
-  
+}
+
+/* Full-width textarea row */
+.wide-col-alt {
+  grid-column: 1 / -1;
+}
+
+/* Label + input group */
+.group-alt {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-alt {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.field-alt,
+.text-field-alt {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+/* Let textareas be resizable */
+.text-field-alt {
+  resize: vertical;
+}
+
+/* Radio/Checkbox groups */
+.rc-group-alt {
+  margin-bottom: 1.5rem;
+}
+
+.group-heading-alt {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.radio-opt-alt,
+.checkbox-opt-alt {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.radio-opt-alt input,
+.checkbox-opt-alt input {
+  margin-right: 0.5rem;
+}
+
+/* 9. Submit button styling */
+.submit-btn-alt {
+  display: inline-block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #007bff;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+.submit-btn-alt:hover {
+  background-color: #0056cc;
+}
+
+/* 10. Popup overlay */
+.overlay-alt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.popup-content-alt {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 4px;
+  max-width: 20rem;
+  text-align: center;
+}

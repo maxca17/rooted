@@ -6,7 +6,7 @@ import Navbar from "../pages/Navbar";
 import Footer from "../pages/Footer";
 import supabase from "../supabase";
 
-// Import the same CSS used before or rename as needed:
+// Same CSS file but renamed references inside:
 import "../pages/css/IndividualForm.css";
 
 // Replace with your actual image import:
@@ -18,10 +18,10 @@ export default function IndividualForm() {
   // Whether to show the submission success popup
   const [showPopup, setShowPopup] = useState(false);
 
-  // Local error message (if any) to display at the top of the form
+  // Local error message (if any)
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Form data stored as plain object. Adjust fields as needed:
+  // Form data stored as an object
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -36,11 +36,9 @@ export default function IndividualForm() {
     comments: "",
   });
 
-  // This function updates formData when any field changes
+  // Update form data on any input change
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-
-    // Handle multiple-choice checkboxes
     if (type === "checkbox") {
       setFormData((prev) => {
         const existingValues = Array.isArray(prev[name]) ? prev[name] : [];
@@ -51,32 +49,27 @@ export default function IndividualForm() {
             : existingValues.filter((item) => item !== value),
         };
       });
-    }
-    // Handle radio buttons
-    else if (type === "radio") {
+    } else if (type === "radio") {
       setFormData((prev) => ({ ...prev, [name]: value }));
-    }
-    // For text, email, textarea, etc.
-    else {
+    } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
 
-  // This function handles the form submission to Supabase
+  // Submit form to Supabase
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage(""); // Clear any previous errors
+    setErrorMessage("");
 
     try {
-      // Convert arrays to comma-separated strings (if your DB needs this format)
       const preparedData = {
         ...formData,
-        categories: formData.categories,     // <— pass as an array
-        hear_about: formData.hear_about,    // <— pass as an array
-        booth_size: formData.booth_size,    // <— pass as an array
+        // Passing arrays directly if your DB can store them
+        categories: formData.categories,
+        hear_about: formData.hear_about,
+        booth_size: formData.booth_size,
       };
 
-      // Insert into "individual_submissions" (table name example)
       const { data, error } = await supabase
         .from("individual")
         .insert([preparedData]);
@@ -87,7 +80,6 @@ export default function IndividualForm() {
         return;
       }
 
-      // If successful, show popup, then redirect after a few seconds
       console.log("Data inserted successfully:", data);
       setShowPopup(true);
       setTimeout(() => {
@@ -100,30 +92,32 @@ export default function IndividualForm() {
   };
 
   return (
-    <div className="individual-form-container">
+    <div className="ind-form-container-alt">
       <Navbar />
 
-      <div className="main-section">
+      <div className="main-section-alt">
         {/* Left-side image */}
-        <div className="left-image-section">
+        <div className="left-image-sec-alt">
           <img
             src={man}
             alt="Participant at Rooted Expo"
-            className="left-image"
+            className="left-image-alt"
           />
         </div>
 
         {/* Right-side form */}
-        <div className="form-section">
-          <form className="form-content" onSubmit={handleSubmit}>
+        <div className="form-section-alt">
+          <form className="form-content-alt" onSubmit={handleSubmit}>
             {/* Display any error message at the top */}
-            {errorMessage && <div className="error-message">{errorMessage}</div>}
+            {errorMessage && (
+              <div className="error-message-alt">{errorMessage}</div>
+            )}
 
             {/* PERSONAL INFORMATION */}
-            <h2 className="section-heading">Personal Information</h2>
-            <div className="input-grid">
-              <div className="input-group">
-                <label htmlFor="name" className="label-text">
+            <h2 className="section-heading-alt">Personal Information</h2>
+            <div className="input-grid-alt">
+              <div className="input-group-alt">
+                <label htmlFor="name" className="label-text-alt">
                   Your Name:
                 </label>
                 <input
@@ -132,13 +126,13 @@ export default function IndividualForm() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="input-field"
+                  className="input-field-alt"
                   required
                 />
               </div>
 
-              <div className="input-group">
-                <label htmlFor="email" className="label-text">
+              <div className="input-group-alt">
+                <label htmlFor="email" className="label-text-alt">
                   Email Address:
                 </label>
                 <input
@@ -147,13 +141,13 @@ export default function IndividualForm() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="input-field"
+                  className="input-field-alt"
                   required
                 />
               </div>
 
-              <div className="input-group">
-                <label htmlFor="phone" className="label-text">
+              <div className="input-group-alt">
+                <label htmlFor="phone" className="label-text-alt">
                   Phone Number:
                 </label>
                 <input
@@ -162,15 +156,15 @@ export default function IndividualForm() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="input-field"
+                  className="input-field-alt"
                 />
               </div>
             </div>
 
             {/* PARTICIPANT DETAILS */}
-            <h2 className="section-heading">Participant Details</h2>
-            <div className="input-group">
-              <label htmlFor="reason" className="label-text">
+            <h2 className="section-heading-alt">Participant Details</h2>
+            <div className="input-group-alt">
+              <label htmlFor="reason" className="label-text-alt">
                 Why are you interested in attending the Rooted Expo?
               </label>
               <textarea
@@ -178,13 +172,13 @@ export default function IndividualForm() {
                 name="reason"
                 value={formData.reason}
                 onChange={handleChange}
-                className="textarea-field"
+                className="textarea-field-alt"
               />
             </div>
 
             {/* CATEGORIES (CHECKBOXES) */}
-            <div className="checkbox-group">
-              <h3 className="group-heading">
+            <div className="checkbox-group-alt">
+              <h3 className="group-heading-alt">
                 Which category does your interest primarily fall under?
               </h3>
               {[
@@ -196,7 +190,7 @@ export default function IndividualForm() {
                 "Networking Opportunities",
                 "Other",
               ].map((category) => (
-                <label key={category} className="checkbox-option">
+                <label key={category} className="checkbox-option-alt">
                   <input
                     type="checkbox"
                     name="categories"
@@ -210,11 +204,13 @@ export default function IndividualForm() {
             </div>
 
             {/* HEAR ABOUT (CHECKBOXES) */}
-            <div className="checkbox-group">
-              <h3 className="group-heading">How did you hear about Rooted Expo?</h3>
+            <div className="checkbox-group-alt">
+              <h3 className="group-heading-alt">
+                How did you hear about Rooted Expo?
+              </h3>
               {["Social Media", "Friend/Colleague", "Website", "Other"].map(
                 (source) => (
-                  <label key={source} className="checkbox-option">
+                  <label key={source} className="checkbox-option-alt">
                     <input
                       type="checkbox"
                       name="hear_about"
@@ -228,11 +224,12 @@ export default function IndividualForm() {
               )}
             </div>
 
-            {/* BOOTH SIZE, SPECIAL REQUESTS, ETC. (OPTIONAL) */}
-            {/* If you don't need these, you can remove them */}
-            <h2 className="section-heading">Additional Details (Optional)</h2>
-            <div className="input-group">
-              <label htmlFor="special_accommodations" className="label-text">
+            <h2 className="section-heading-alt">Additional Details (Optional)</h2>
+            <div className="input-group-alt">
+              <label
+                htmlFor="special_accommodations"
+                className="label-text-alt"
+              >
                 Special Accommodations:
               </label>
               <input
@@ -241,12 +238,12 @@ export default function IndividualForm() {
                 name="special_accommodations"
                 value={formData.special_accommodations}
                 onChange={handleChange}
-                className="input-field"
+                className="input-field-alt"
               />
             </div>
 
-            <div className="input-group">
-              <label htmlFor="comments" className="label-text">
+            <div className="input-group-alt">
+              <label htmlFor="comments" className="label-text-alt">
                 Any Additional Comments:
               </label>
               <textarea
@@ -254,12 +251,12 @@ export default function IndividualForm() {
                 name="comments"
                 value={formData.comments}
                 onChange={handleChange}
-                className="textarea-field"
+                className="textarea-field-alt"
               />
             </div>
 
             {/* SUBMIT BUTTON */}
-            <button type="submit" className="submit-button">
+            <button type="submit" className="submit-button-alt">
               Submit
             </button>
           </form>
@@ -268,15 +265,15 @@ export default function IndividualForm() {
 
       {/* SUBMISSION SUCCESS POPUP */}
       {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup-content">
+        <div className="popup-overlay-alt">
+          <div className="popup-content-alt">
             <p>Thank you for your submission! Redirecting you to the homepage...</p>
           </div>
         </div>
       )}
 
       {/* FOOTER SECTION */}
-      <div className="footer-container">
+      <div className="footer-container-alt">
         <Footer />
       </div>
     </div>
