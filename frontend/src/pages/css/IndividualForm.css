@@ -22,7 +22,7 @@
 /* Left image section */
 .left-image-sec-alt {
   width: 100%;
-  max-height: 600px;
+  max-height: 1200px; /* Increased max-height to make the image longer */
   overflow: hidden;
   margin-bottom: 1rem;
 }

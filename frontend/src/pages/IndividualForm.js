@@ -10,7 +10,7 @@ import supabase from "../supabase";
 import "../pages/css/IndividualForm.css";
 
 // Replace with your actual image import:
-import man from "../images/man.jpeg";
+import man from "../images/man1.jpg";
 
 export default function IndividualForm() {
   const navigate = useNavigate();
