@@ -8,11 +8,11 @@
     margin: 80px auto;
     padding: 0 20px;
     
-    /* Layout: text on the left, stats on the right */
+    /* Layout: centers the content */
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
   }
   
   /* ---------
@@ -21,6 +21,7 @@
   .our-stats-text {
     max-width: 500px;
     margin-bottom: 40px; /* spacing for smaller screens */
+    text-align: center; /* Center text */
   }
   
   .our-stats-text h6 {
@@ -53,11 +54,12 @@
     display: grid;
     grid-template-columns: repeat(2, auto);
     grid-gap: 20px 80px; /* 20px row gap, 80px column gap */
+    justify-content: center; /* Center the cards */
   }
   
   /* INDIVIDUAL CARD */
   .stat-card {
-    text-align: left; /* or center, depending on preference */
+    text-align: center; /* Center text in cards */
   }
   
   .stat-card h3 {
@@ -72,4 +74,3 @@
     color: #6f7b7d;
     margin: 0;
   }
-  
