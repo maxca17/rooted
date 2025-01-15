@@ -1,0 +1,1 @@
+Several things  - I think the Projected Stats area looks a little off (not centered correctly) I also think you were gonna do style sheets to make the wording all look a little better, yes? 

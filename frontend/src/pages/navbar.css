@@ -22,7 +22,7 @@
 
 .navbar__logo {
   cursor: pointer;
-  height: 80px; /* Larger logo */
+  height: 100px !important;
 }
 
 .navbar__menu {
