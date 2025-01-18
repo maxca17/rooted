@@ -13,6 +13,12 @@
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
     justify-content: center; /* Center items vertically */
+    
+    /* Modern shading box */
+    background: rgba(255, 255, 255, 0.8); /* Light background with transparency */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border-radius: 10px; /* Rounded corners */
+    padding: 40px; /* Additional padding for the box */
   }
   
   /* ---------

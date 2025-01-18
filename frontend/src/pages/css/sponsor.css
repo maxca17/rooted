@@ -7,6 +7,8 @@
   min-height: 100vh;
   font-family: Arial, sans-serif;
   background-color: #f7f7f7;
+  display: flex; /* Added to enable flexbox layout */
+  flex-direction: column; /* Stack children vertically */
 }
 
 /* Make sure Navbar (if fixed) doesn’t overlap the content */
@@ -22,13 +24,14 @@
   max-width: 1200px;
   /* push it down if you have a fixed navbar 
      adjust margin-top as needed for your actual Navbar height */
-  margin: 80px auto 0 auto;
+  margin: 100px auto 0 auto;
   padding: 2rem;
 
   /* Use flex. By default, stack on smaller screens (column) */
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  flex-grow: 1; /* Allow main content to grow and push footer down */
 }
 
 /* Switch to row-based layout at 992px and above */
